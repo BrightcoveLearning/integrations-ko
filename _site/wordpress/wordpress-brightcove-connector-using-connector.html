@@ -1,0 +1,664 @@
+﻿<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  
+  <title>워드 프레스 브라이트코브 커넥터: 커넥터 사용</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">  
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">홈</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/wordpress/">워드 프레스</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">워드 프레스 브라이트코브 커넥터: 커넥터 사용</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+					<option value="">기타 브라이트코브 문서</option>
+					
+						
+							<option value="https://support.brightcove.com">설명서 홈</option>
+						
+					
+						
+							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
+						
+					
+						
+							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
+						
+					
+						
+							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
+						
+					
+						
+							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
+						
+					
+						
+							<option value="https://live.support.brightcove.com">Brightcove Live</option>
+						
+					
+						
+							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+						
+					
+						
+							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+						
+					
+						
+							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
+						
+					
+						
+							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
+						
+					
+						
+							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
+						
+					
+						
+							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
+						
+					
+						
+							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
+						
+					
+						
+							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
+						
+					
+						
+							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
+						
+					
+						
+							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
+						
+					
+				</select>
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">홈</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general/cms-integration-training-videos.html">CMS 통합 교육 비디오</a></li>
+                  
+                
+                  
+                    <li><a href="/general/integrating-your-cms-video-cloud.html">CMS를 비디오 클라우드와 통합</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-players-cms.html">CMS에 브라이트코브 플레이어 삽입</a></li>
+                  
+                
+                  
+                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">CMS에 페이지 내 경험 포함</a></li>
+                  
+                
+                  
+                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">네트워크 및 API 연결 문제 디버깅</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/wordpress/index.html">워드 프레스<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">브라이트코브 비디오 연결 시작하기</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">구성</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">자주 묻는 질문</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">설치</a></li>
+                  
+                
+                  
+                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">커넥터 사용</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/drupal/index.html">드루팔<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">드루팔용 커넥터 시작하기</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">드루팔 8 - 구성</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">드루팔 8 - 콘텐츠 관리</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">드루팔 8 - 내용 포함</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">드루팔 8 - 커넥터 설치</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">드루팔 7 - 구성 및 사용법</a></li>
+                  
+                
+                  
+                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">드루팔 7 - 설치</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/adobe/index.html">어도비<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">AEM용 커넥터 시작하기</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">구성</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">설치</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">개요</a></li>
+                  
+                
+                  
+                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">커넥터 사용</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sitecore/index.html">사이트 코어<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Sitecore용 커넥터 시작하기</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/sharepoint/index.html"><strong>셰어포인트</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">셰어포인트 커넥터 시작하기</a></li>
+                  
+                
+                  
+                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">커넥터 사용</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecommerce/index.html">전자 상거래 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/salesforce/index.html">세일즈포스 커머스 클라우드<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">세일즈포스 상거래 클라우드: </a>설치</li>
+                        
+                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">세일즈포스 상거래 클라우드: 사용자 안내서</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecommerce/adobe-magento-commerce/index.html">어도비 젠토 커머스<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">설치 안내서</a></li>
+                        
+                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">사용자 안내서</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/kollective/index.html">콜렉티브<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">콜렉티브 eCDN 배포 가이드</a></li>
+                        
+                        <li><a href="/ecdn/kollective/kollective-user-guide.html">콜렉티브 eCDN 사용자 가이드</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/peer5/index.html">피어5 <strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Peer5 통합을 통한 브라이트코브</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/ecdn/ramp/index.html">램프<strong>+</strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">램프 옴니캐시 및 비디오 클라우드 시작하기</a></li>
+                        
+                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">램프 멀티캐스트+ 및 비디오 클라우드 시작하기</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/web-conferencing/index.html">웹 회의<strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">브라이트코브 라이브 줌 컨퍼런스</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">브라이트코브 라이브로 가는 시스코 웹 벡스 컨퍼런스</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">브라이트코브 라이브 어바이어 컨퍼런스</a></li>
+                  
+                
+                  
+                    <li><a href="/web-conferencing/host-inxpo-live.html">INXPO 브라이트코브 라이브 이벤트</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">페이지 내용</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<article class="bcls-article">
+  <h1>워드 프레스 브라이트코브 커넥터: 커넥터 사용</h1>
+  <summary>이 항목에서는 Wordpress-Brightcove 커넥터를 사용하여 Wordpress에서 비디오를 관리하고 게시하는 방법에 대해 설명합니다.</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">서문</h2>
+    <p>WordPress-BrightCove 커넥터를 사용하면 WordPress에서 브라이트코브 비디오 클라우드 비디오 및 플레이어를 관리하고 WordPress 페이지에 비디오를 쉽게 삽입할 수 있습니다.</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_player_publishing">비디오 플레이어 출판</h2>
+    <p>비디오 플레이어 게시를 통해 사용자는 브라이트코브 계정의 비디오를 WordPress 사이트에 쉽게 삽입할 수 있습니다.</p>
+    <p>동영상을 게시하려면 새 게시물 페이지로 이동하기만 하면 됩니다. 핵심 기능에는 제목 아래와 편집기 위에 “미디어 추가”버튼이 있습니다. 브라이트코브 비디오 커넥트에서는 “브라이트코브 미디어” 버튼도 사용할 수 있습니다. 이 버튼을 클릭하면 브라이트코브 미디어 모달이 열립니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="브라이트코브 학습 서비스-미디어를 추가하는 버튼" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/brightcove-media.png"/></figure>
+    <p>여기에서 사용자는 이미지를 클릭하여 사용할 이미지를 선택할 수 있습니다. 비디오의 썸네일이 옵션과 함께 측면에 나타납니다. 특정 동영상을 찾으려면 제목, 태그 또는 설명별로 검색할 수 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="선택한 이미지가 측면에 나타납니다." width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/select-videos.png"/></figure>
+    <p>그런 다음 사용자가 사용할 플레이어를 선택하고 자동 재생, 임베드 스타일 및 크기 조정과 같은 옵션을 사용자 지정할 수 있습니다.</p>
+    <p>비디오를 삽입하는 데는 두 가지 옵션이 있습니다. 간단히 “게시물에 삽입”버튼을 클릭하면 게시물에 비디오를 삽입하지만 사용자는 단축 코드를 복사하여 게시물에 붙여 넣을 수 있습니다. “게시물에 삽입”버튼을 사용하는 경우 단축 코드는 일반 텍스트보기에서 계속 표시됩니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="게시물에 비디오를 삽입하는 옵션, 단축 코드 및 버튼" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/options-shortcode-insert.png"/></figure>
+    <p>동영상이 새 게시물 페이지에 나타나지만 게시되는 모습을 보려면 게시물 미리보기를 확인하십시오. 그것은 매우 다를 수 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="편집 창 내 이미지와 게시 된 비디오의 나란히 비교." width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/preview-vs-post.png"/></figure>
+    <section class="bcls-subsection">
+      <h3 id="publishing_playlists">재생 목록 게시</h3>
+      <p>재생목록은 단일 동영상과 똑같은 방식으로 게시할 수 있습니다. 재생 목록을 게시하려면 재생 목록을 지원하는 브라이트코브 플레이어가 있어야 합니다.</p>
+    </section>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_content_management">비디오 콘텐츠 관리</h2>
+    <p>사용자는 브라이트코브에 비디오를 업로드하고 WordPress 대시보드에서 바로 메타데이터를 업데이트할 수 있습니다.</p>
+    <section class="bcls-subsection">
+      <h3 id="video_upload">동영상 업로드</h3>
+      <p>브라이트코브에 비디오를 업로드하려면 WordPress의 브라이트코브 관리자 페이지에서 “새로 추가”를 클릭합니다.“</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="새 추가 버튼입니다." src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/add-new.png"/></figure>
+      <p>여기에서 파일을 선택하거나 업로드할 페이지로 파일을 끌어다 놓을 수 있습니다. 한 번에 여러 개의 파일을 업로드하도록 선택할 수 있습니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="선택 또는 드래그 앤 드롭합니다." width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/drop-files.png"/></figure>
+      <p>파일이 페이지에 나타납니다. 메타데이터를 추가하려면 파일 이름을 클릭하면 옵션이 열립니다.</p>
+      <figure class="bcls-figure">&lt;img 클래스 = “bcls-이미지”.= "”Alt = “메타 데이터 추가.” 너비 = “800 픽셀”src=”// 학습 서비스-미디어.Brightcove.com/doc-자산/노드/18582 워드 프레스 브라이트코브 커넥터-사용/업로드 메타 데이터.png”/ &gt;</figure>
+      <p>준비가되면 업로드를 시작하십시오.</p>
+      <p>“업로드” 링크를 클릭하면 새 게시물 페이지의 미디어 모달과 같은 방법으로 동영상을 업로드할 수 있습니다.</p>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="failure">실패</h3>
+      <figure class="bcls-figure"><img class="bcls-image" alt="실패 통지" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/unable-to-upload.png"/></figure>
+      <p>동영상이 업로드되지 않으면 파일 권한에 문제가 있을 수 있습니다. 웹 서버에 wp-content/업로드 폴더에 대한 읽기/쓰기 권한이 있는지 확인하십시오. 동영상이 일시적으로 여기에 업로드됩니다.</p>
+      <p>브라이트코브는 방화벽 뒤에서 수집하지 않습니다. 문제가 되면 새 비디오가 생성되지만 코드 변환되지 않습니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="업로드 실패" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/failed-upload.png"/></figure>
+      <p>해결 방법은 브라이트코브 계정으로 이동하여 소스 파일을 교체합니다. WordPress에서 비디오를 인제스트하려면 브라이트코브가 방화벽을 열어야 합니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="소스 바꾸기" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/replace-source.png"/></figure>
+      <p>기존 축소판 및 포스터를 유지하는 확인란을 선택 취소하는 것을 잊지 마십시오. 그렇지 않으면 회색 상자로 유지됩니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="확인란을 선택 취소하여 새 축소판이 생성됩니다." src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/keep-thumbnails.png"/></figure>
+      <p>업로드가 끝나면 동영상은 WordPress에서 사용할 수 있어야합니다.</p>
+      <p>자세한 내용은<a href="https://support.brightcove.com/debugging-network-and-api-connection-issues-cms-and-dam-integrations">CMS 및 DAM 통합과 관련된 디버깅 네트워크 및 API 연결 문제를</a>확인하십시오.</p>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="metadata">메타데이터</h3>
+      <p>WordPress에서 사용자는 비디오의 이름, 간단한 설명, 긴 설명 및 태그를 업데이트 할 수 있습니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="새 이름 및 정보로 화면 편집" width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/edit-screen.png"/></figure>
+      <p>새로운 미리보기 이미지, 포스터, 자막 트랙도 업로드할 수 있지만 동영상 업로드와 마찬가지로 방화벽이나 권한에 의해 차단될 수 있습니다.</p>
+      <p><strong>버전 1.7.0부터는</strong>비디오에 대해 미리 정의된 Video Cloud 폴더를 선택할 수도 있습니다. 이 작업은 Wordpress와 비디오 클라우드 모두에서 해당 폴더로 비디오를 이동합니다. 참고: 비디오 클라우드에 폴더를 만들어야 합니다.</p>
+      <p>사용자 정의 필드를 포함한 기타 메타데이터 필드는 브라이트코브 스튜디오에서 편집해야 합니다.</p>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="deletion">삭제</h3>
+      <p>사용자는 편집 페이지에서 동영상을 삭제할 수 있습니다. 확인을 위해 경고가 팝업됩니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="이미지 삭제" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/delete.png"/></figure>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="playlist_management">재생 목록 관리</h3>
+      <p>재생 목록은 WordPress에서 만들 수 없지만 일단 존재하면 편집 할 수 있습니다. 동영상을 추가하거나 제거하거나 목록에서 위 또는 아래로 이동할 수 있습니다.</p>
+      <figure class="bcls-figure"><img class="bcls-image" alt="재생 목록 편집 화면" width="800px" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/playlists.png"/></figure>
+    </section>
+    <section class="bcls-subsection">
+      <h3 id="players">플레이어</h3>
+      <p>플레이어는 브라이트코브 스튜디오에서만 만들거나 편집할 수 있지만, 특정 동영상의 크기 등의 일부 측면을 게시할 때 변경할 수 있습니다. 재생 목록을 게시하려면 재생 목록 플레이어가 이미 존재해야 합니다.</p>
+    </section>
+  </section>
+  <section class="bcls-section">
+    <h2 id="in-page-experience">페이지 내 경험</h2>
+    <p>브라이트코브 플러그인은 페이지 내 경험을 지원합니다. 이 옵션은 모든 사용자에게 표시되지만 특정 계정에 대해 옵션을 사용할 수 있어야 합니다. 그렇지 않으면 작동하지 않습니다. 페이지 내 경험에 액세스 할 수있는 계정만 Wordpress에서 사용할 수 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="비디오 경험 선택" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/top-bar.png"/></figure>
+    <p>Wordpress를 통해 페이지 내 경험을 통합하는 방법에는 비디오 경험과 재생 목록 경험이라는 두 가지가 있습니다. 동영상 경험을 통해 먼저 포함하려는 환경을 선택합니다. 사이드 바에는 사용 가능한 환경이 나열되어 있는 드롭다운이 있습니다.</p>
+    <figure class="bcls-figure"><img class="bcls-image" alt="비디오 경험 선택" src="//learning-services-media.brightcove.com/doc-assets/node/18582-wordpress-brightcove-connector-using-the-connector/choose-your-experience.png"/></figure>
+    <p>비디오를 선택하지 않고 “게시물에 삽입”을 누르면 이전에 만든 페이지 내 환경이 삽입됩니다. 또는 일부 동영상을 선택한 다음 포함하려는 페이지 내 경험을 선택하여 해당 동영상을 경험으로 전환할 수도 있습니다. 마찬가지로 재생 목록 환경을 통해 재생 목록과 경험을 선택한 다음 게시물에 삽입합니다. 재생 목록은 경험으로 변환됩니다.</p>
+  </section>
+</article>
+
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">페이지 내용</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<footer class="bcls-footer" role="contentinfo">  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>브라이트코브 지원</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">시스템 상태</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">문서화</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>교육</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <style>
+    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
+      background-color: lightblue;
+    }
+    div.sj-tabs__tab {
+      margin-top: 3rem;
+      margin-left: .3rem;
+      border-top-left-radius: .4rem;
+      border-top-right-radius: .4rem;
+      background-color:#e8e8e8;
+    }
+
+    div.sj-tabs__tab.sj-tabs__tab--selected {
+      border-bottom-color: crimson;
+      background-color: #f8f8f8;
+    }
+
+    p.sj-results__result__description.css-p9jvyt {
+      font-size: 1rem;
+    }
+
+    .sj-result__text.css-31l7gp h3 {
+      color: navy;
+      font-size: 1.4rem;
+    }
+    </style>
+
+</body>
+
+</html>
