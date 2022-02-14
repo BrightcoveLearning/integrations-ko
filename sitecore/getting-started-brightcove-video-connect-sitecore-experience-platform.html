@@ -1,443 +1,36 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  
-  <title>Sitecore용 브라이트코브 비디오 커넥트 시작하기</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item">Sitecore<a href="/sitecore/"></a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">Sitecore용 브라이트코브 비디오 커넥트 시작하기</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/cms-integration-training-videos.html">CMS 통합 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/general/integrating-your-cms-video-cloud.html">CMS를 비디오 클라우드와 통합</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-players-cms.html">CMS에 브라이트코브 플레이어 삽입</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">CMS에 페이지 내 경험 포함</a></li>
-                  
-                
-                  
-                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">네트워크 및 API 연결 문제 디버깅</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/wordpress/index.html">워드 프레스<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">브라이트코브 비디오 연결 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">구성</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">자주 묻는 질문</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">설치</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">커넥터 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/drupal/index.html">드루팔<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">드루팔용 커넥터 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">드루팔 8 - 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">드루팔 8 - 콘텐츠 관리</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">드루팔 8 - 내용 포함</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">드루팔 8 - 커넥터 설치</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">드루팔 7 - 구성 및 사용법</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">드루팔 7 - 설치</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/adobe/index.html">어도비<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">AEM용 커넥터 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">구성</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">설치</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">개요</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">커넥터 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/sitecore/index.html">사이트 코어<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Sitecore용 커넥터 시작하기</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/sharepoint/index.html"><strong>셰어포인트</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">셰어포인트 커넥터 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">커넥터 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecommerce/index.html">전자 상거래 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/salesforce/index.html">세일즈포스 커머스 클라우드<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">세일즈포스 상거래 클라우드: </a>설치</li>
-                        
-                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">세일즈포스 상거래 클라우드: 사용자 안내서</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/adobe-magento-commerce/index.html">어도비 젠토 커머스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">설치 안내서</a></li>
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">사용자 안내서</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/kollective/index.html">콜렉티브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">콜렉티브 eCDN 배포 가이드</a></li>
-                        
-                        <li><a href="/ecdn/kollective/kollective-user-guide.html">콜렉티브 eCDN 사용자 가이드</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/peer5/index.html">피어5 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Peer5 통합을 통한 브라이트코브</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/ramp/index.html">램프<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">램프 옴니캐시 및 비디오 클라우드 시작하기</a></li>
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">램프 멀티캐스트+ 및 비디오 클라우드 시작하기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/web-conferencing/index.html">웹 회의<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">브라이트코브 라이브 줌 컨퍼런스</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">브라이트코브 라이브로 가는 시스코 웹 벡스 컨퍼런스</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">브라이트코브 라이브 어바이어 컨퍼런스</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-inxpo-live.html">INXPO 브라이트코브 라이브 이벤트</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
+---
+title: 사이트코어용 브라이트코브 비디오 커넥트 시작하기
+parent: Sitecore
+---
 <article class="bcls-article">
-  <h1>Sitecore 경험 플랫폼을 위한 브라이트코브 비디오 커넥트 시작하기</h1>
-  <summary>이 항목에서는 Sitecore 경험 플랫폼을 위한 브라이트코브 비디오 커넥트에 대한 개요를 제공합니다.</summary>
-  <aside class="bcls-aside bcls-aside--information language-editable">참고: 사이트 코어 v9.0.x에 대한 지원은 2021년 1월 1일 현재 종료됩니다.</aside>
+  <h1>Sitecore 경험 플랫폼용 Brightcove Video Connect 시작하기</h1>
+  <summary>이 항목에서는 Sitecore Experience Platform 용 Brightcove Video Connect의 개요를 제공합니다.</summary>
+  <aside class="bcls-aside bcls-aside--information">참고: 사이트 코어 v9.0.x에 대한 지원은 2021년 1월 1일부터 종료되었습니다.</aside>
   <table class="bcls-table">
     <thead class="bcls-table__head">
       <tr>
         <th scope="col">플러그인 버전</th>
-        <th scope="col">문서</th>
+        <th scope="col">선적 서류 비치</th>
         <th scope="col">다운로드</th>
-        <th scope="col">호환성 참고 사항</th>
+        <th scope="col">호환성 정보</th>
       </tr>
     </thead>
     <tbody class="bcls-table__body">
+      <tr>
+        <td>10.0</td>
+        <td><a href="#contents">문서</a></td>
+        <td>
+          <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/releases/tag/10.0">플러그인</a></p>
+
+          <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/tree/v10.0">출처</a></p>
+        </td>
+        <td>
+          <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> 10.0을 지원합니다.</p>
+
+          <p>Brightcove에서 유지 관리하는 오픈 소스 프로젝트</p>
+        </td>
+      </tr>
       <tr>
         <td>9.3</td>
         <td><a href="#contents">문서</a></td>
@@ -447,9 +40,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/tree/v9.3">출처</a></p>
         </td>
         <td>
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 9.3.</p>
+          <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> 9.3을 지원합니다.</p>
 
-          <p>브라이트코브가 관리하는 오픈 소스 프로젝트</p>
+          <p>Brightcove에서 유지 관리하는 오픈 소스 프로젝트</p>
         </td>
       </tr>
       <tr>
@@ -463,9 +56,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/tree/v9.2">출처</a></p>
         </td>
         <td>
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 9.2.</p>
+          <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> 9.2를 지원합니다.</p>
 
-          <p>브라이트코브가 관리하는 오픈 소스 프로젝트</p>
+          <p>Brightcove에서 유지 관리하는 오픈 소스 프로젝트</p>
         </td>
       </tr>
       <tr>
@@ -477,133 +70,126 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
           <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/tree/v9.1.1">출처</a></p>
         </td>
         <td>
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 9.1.1.</p>
+          <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> 9.1.1을 지원합니다.</p>
 
-          <p>브라이트코브가 관리하는 오픈 소스 프로젝트</p>
+          <p>Brightcove에서 유지 관리하는 오픈 소스 프로젝트</p>
         </td>
       </tr>
       <tr>
         <td>
           <p>9.0.2</p>
 
-          <p>(버전은 향후 지원되는 Sitecore 버전과 일치합니다)</p>
         </td>
         <td>
-          <p><a href="#contents">문서</a></p>
+          <p>EOL</p>
         </td>
         <td>
-          <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/releases/tag/v9.0.2">플러그인</a><sup> *</sup></p>
-
-          <p><a href="https://github.com/BrightcoveOS/Sitecore-Connector/tree/v9.0.2">출처</a><sup> *</sup></p>
+          <p>EOL</p>
         </td>
         <td>
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 9.0.2. &nbsp;더 이상 미디어 프레임 워크를 별도로 설치할 필요가 없습니다. 미디어 프레임 워크&nbsp;이다&nbsp; Brightcove 패키지에 포함되어 있습니다.</p>
-
-          <p>용도&nbsp; Solr 검색 엔진, Brightcove CMS 및 Dynamic Ingest API, Brightcove HTML5 Player</p>
-
-          <p>오픈 소스 프로젝트 유지&nbsp;작성자 Brightcove</p>
+          <p>2021 년 1월 1일 현재 EOL &gt;
         </td>
       </tr>
       <tr>
         <td>
           <p>2.2.0</p>
 
-          <p>(3.0이었다, 미디어 프레임 워크 버전과 일치하도록 2.2.0으로 변경)</p>
+          <p>(기존 3.0, 미디어 프레임 워크 버전과 일치하도록 2.2.0으로 변경)</p>
         </td>
-        <td>에올</td>
+        <td>EOL</td>
         <td>
-          <p>에올</p>
+          <p>EOL</p>
         </td>
         <td>
-          <p><strong>삶의 끝&nbsp; 2020 년 1 월 1 일 기준</strong></p>
+          <p><strong>2020년 1월 1일 기준 종료&nbsp;</strong></p>
 
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 8.1 (Media Framework 2.1 v150625 포함), <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 8.2 rev 161221 (Media Framework 2.2 rev 160927 포함)</p>
+          <p>미디어 프레임워크 2.1 v150625, <span translate="No">비디오 클라우드</span><span translate="No">사이트코어로 비디오 클라우드 사이트</span><span translate="No">코어</span> 8.1 지원<span translate="No"></span> 8.2 레브 161221 (미디어 프레임워크 포함) 2.2 레브 160927</p>
 
-          <p>용도&nbsp; Lucene 검색 엔진, Brightcove CMS 및 Dynamic Ingest API, Brightcove HTML5 Player</p>
+          <p>&nbsp; Lucene 검색 엔진, 브라이트코브 CMS 및 다이내믹 인제스트 API, 브라이트코브 HTML5 플레이어 사용</p>
 
-          <p>브라이트코브가 관리하는 오픈 소스 프로젝트</p>
-        </td>
-      </tr>
-      <tr>
-        <td><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크 Brightcove Edition 2.1 rev. 150323</td>
-        <td>에올</td>
-        <td>에올</td>
-        <td>
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 8.0 (미디어 프레임 워크 2.1 포함) v150323</p>
-
-          <p>용도&nbsp; Lucene 검색 엔진, Brightcove Legacy Media API, Brightcove Legacy Flash SmartPlayer</p>
-
-          <p>소유 및 배포<span translate="No">Video Cloud</span><span translate="No">Sitecore</span></p>
+          <p>Brightcove에서 유지 관리하는 오픈 소스 프로젝트</p>
         </td>
       </tr>
       <tr>
-        <td><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크 1.4 Brightcove 에디션</td>
-        <td>에올</td>
-        <td>에올</td>
+        <td><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크 브라이트코브 에디션 2.1 rev. 150323</td>
+        <td>EOL</td>
+        <td>EOL</td>
         <td>
-          <p>지원<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> 7.x (Media Framework 1.4 포함), &nbsp;</p>
+          <p>미디어 프레임워크 2.1 v150323을 사용하여<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> 8.0 지원</p>
 
-          <p>용도&nbsp; Lucene 검색 엔진, Brightcove Legacy Media API, Brightcove Legacy Flash SmartPlayer</p>
+          <p>&nbsp; Lucene 검색 엔진 사용, 브라이트코브 레거시 미디어 API, 브라이트코브 레거시 플래시 스마트 플레이어</p>
 
-          <p>소유 및 배포<span translate="No">Video Cloud</span><span translate="No">Sitecore</span></p>
+          <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어에서 소유 및 배포</span></p>
+        </td>
+      </tr>
+      <tr>
+        <td><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크 1.4 브라이트코브 에디션</td>
+        <td>EOL</td>
+        <td>EOL</td>
+        <td>
+          <p>미디어 프레임워크 1.4로<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> 7.x를 지원합니다. &nbsp;</p>
+
+          <p>&nbsp; Lucene 검색 엔진 사용, 브라이트코브 레거시 미디어 API, 브라이트코브 레거시 플래시 스마트 플레이어</p>
+
+          <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어에서 소유 및 배포</span></p>
         </td>
       </tr>
     </tbody>
   </table>
-  <p>* 저작권 2019 &nbsp;<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , 저작권 2019 Brightcove</p>
-  <p>Apache License, 버전 2.0 (이하 “라이선스”) 에 따라 사용이 허가되었습니다. 라이센스를 준수하지 않는 한 이 파일을 사용할 수 없습니다. 다음에서 라이센스 사본을 얻을 수 있습니다. <a style="box-sizing: border-box; background-color: transparent; color: rgb(3, 102, 214);" href="https://www.apache.org/licenses/LICENSE-2.0"> https://www.apache.org/licenses/LICENSE-2.0</a> . &nbsp;관련 법률에서 요구하거나 서면으로 합의하지 않는 한, 라이센스에 따라 배포되는 소프트웨어는 명시적 또는 묵시적 보증 또는 조건 없이 “있는 그대로” 배포됩니다. 라이센스에 따른 권한 및 제한 사항을 관리하는 특정 언어에 대해서는 라이센스를 참조하십시오.</p>
-  <p>이 커넥터에 대한 도움이 필요하면 다음을 작성하십시오. <a href="https://files.brightcove.com/BrightcoveConnectforSitecoreSupportWorksheet.docx">워크 시트</a>지원 티켓과 함께 포함하여<a href="https://supportportal.brightcove.com/create"> Brightcove 고객 지원</a> .</p>
+  <p>* 저작권 2019 &nbsp;<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> , 저작권 2019 브라이트코브</p>
+  <p>Apache 라이선스 버전 2.0 (“라이선스”) 에 따라 라이센스가 부여됩니다. 라이선스를 준수하는 경우를 제외하고는 이 파일을 사용할 수 없습니다. <a style="box-sizing: border-box; background-color: transparent; color: rgb(3, 102, 214);" href="https://www.apache.org/licenses/LICENSE-2.0">https://www.apache.org/licenses/LICENSE-2.0 에서 라이센스 사본을 얻을 수</a>있습니다. &nbsp;관련 법률에서 요구하거나 서면으로 동의하지 않는 한, 라이선스에 따라 배포 된 소프트웨어는 명시 적이든 묵시적이든 어떠한 종류의 보증이나 조건없이 "있는 그대로"배포됩니다. 라이선스에 따른 권한 및 제한 사항에 적용되는 특정 언어는 라이선스를 참조하십시오.</p>
+  <p>이 커넥터에 대한 도움이 필요하면 이<a href="https://files.brightcove.com/BrightcoveConnectforSitecoreSupportWorksheet.docx">워크시트를</a>작성하고<a href="https://supportportal.brightcove.com/create">브라이트코브 고객 지원팀에 대한 지원 티켓에 포함시키십시오</a> .</p>
   <p>&nbsp;</p>
   <div>
-    <h2 id="contents">콘텐츠</h2>
+    <h2 id="contents">내용</h2>
     <ul>
-      <li><a href="#installing">Brightcove Video Connect 설치<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>체험 플랫폼</a></li>
-      <li><a href="#linking">연결<span translate="No">Video Cloud</span>계정</a></li>
-      <li><a href="#players">정의<span translate="No">Video Cloud</span>플레이어</a></li>
+      <li><a href="#installing">Brightcove Video Connect 설치<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>체험 플랫폼</a></li>
+      <li><a href="#linking"><span translate="No">비디오 클라우드</span>계정 연결</a></li>
+      <li><a href="#players"><span translate="No">비디오 클라우드</span>플레이어 정의</a></li>
       <li><a href="#videos">비디오 가져 오기, 추가, 미리보기 및 삭제</a></li>
       <li><a href="#search">비디오 및 재생 목록 검색</a></li>
       <li><a href="#playlists">재생 목록 가져 오기, 추가, 미리보기 및 삭제</a></li>
-      <li><a href="#embedding">비디오 추가<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>웹 사이트</a></li>
-      <li><a href="#synchronization">사이 동기화<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>과<span translate="No">Video Cloud</span></a></li>
+      <li><a href="#embedding"><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>웹 사이트에 비디오 추가</a></li>
+      <li><a href="#synchronization"><span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어와<span translate="No">비디오 클라우드 간의 동기화</span></a></li>
       <li><a href="#analytics">재생 이벤트 분석</a></li>
     </ul>
   </div>
   <div class="BCL-concept">
-    <h2 id="installing">Brightcove Video Connect 설치<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> CMS</h2>
-    <p>이 항목에서는 브라이트코브 비디오 연결 모듈의 설치 프로세스에 대해 설명합니다.</p>
+    <h2 id="installing">Brightcove Video Connect 설치<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> CMS</h2>
+    <p>이 항목에서는 Brightcove Video Connect 모듈의 설치 프로세스를 다룹니다.</p>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5026949771001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
-    <h3>설치<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크 2.1</h3>
-    <p>Brightcove Video Connect에는<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 먼저 설치해야합니다. 그만큼<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크는<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>설치 마법사. 설치 마법사에 표시되는 지침을 따릅니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-install-install-package.png"/></div>
-    <h3>워크플로에서 페이지 이벤트 릴리스</h3>
-    <p>그만큼<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크에는 사용하기 전에 워크 플로에서 해제하고 게시해야하는 여러 페이지 이벤트가 포함되어 있습니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-install-playback-events.png"/></div>
+    <h3><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크 2.1 설치</h3>
+    <p>브라이트코브 비디오 커넥트는 먼저<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크를 설치해야 합니다. <span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어를 사용하여 설치됩니다. </span>설치 마법사. 설치 마법사가 표시하는 지시를 따릅니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-install-install-package.png" /></div>
+    <h3>워크 플로에서 페이지 이벤트 해제</h3>
+    <p><span translate="No">Video Cloud </span><span translate="No">Sitecore</span>미디어 프레임워크에는 워크플로에서 릴리스되고 게시되어야 사용할 수 있는 여러 페이지 이벤트가 포함되어 있습니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-install-playback-events.png" /></div>
     <ol class="bcls-tasklist">
-      <li>열기<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>연장 상자</li>
-      <li>분석 워크플로 선택</li>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>워크박스 열기</li>
+      <li>Analytics 워크 플로 선택</li>
       <li>다음 페이지 이벤트를 배포합니다.
         <ul>
-          <li>재생이 변경됨</li>
+          <li>재생 변경</li>
           <li>재생 완료</li>
           <li>재생 오류</li>
-          <li>재생이 시작됨</li>
+          <li>재생 시작됨</li>
         </ul>
       </li>
       <li>페이지 이벤트 게시</li>
     </ol>
-    <h3>Brightcove Video Connect를 설치하십시오. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>체험 플랫폼</h3>
-    <p>Brightcove Video Connect for <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>다음을 사용하여 설치됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>설치 마법사. 설치 마법사에 표시되는 지침을 따릅니다. 그만큼<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>플러그인은 위 표의 링크를 통해 다운로드 할 수 있습니다. 이 zip 파일에는 소스 패키지와 플러그인 패키지가 모두 포함되어 있습니다. &nbsp;먼저 압축을 푼 다음&nbsp;내부 zip 패키지를<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>예.</p>
+    <h3>Brightcove Video Connect 설치<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>체험 플랫폼</h3>
+    <p>비디오 클라우드용 브라이트코브<span translate="No">비디오 커넥트</span><span translate="No"></span>사이트코어는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어를 사용하여 설치됩니다.</span>설치 마법사. 설치 마법사가 표시하는 지시를 따릅니다. <span translate="No">Video Cloud </span><span translate="No">Sitecore</span>플러그인은 위 표의 링크를 통해 다운로드할 수 있습니다. 이 zip 파일에는 소스 및 플러그인 패키지가 모두 포함되어 있습니다. &nbsp;먼저 압축을 푼 다음&nbsp;내부 zip 패키지를<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>사례.</p>
     <h3>보고 데이터베이스 구성</h3>
-    <p>위해<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크가 작동하려면 xDB (Experience Database)보고 데이터베이스에 새 팩트 테이블을 추가해야합니다. 이 새 테이블을 만드는 스크립트는 SDN에서 사용할 수 있습니다. xDB 보고 데이터베이스에서 이 스크립트를 실행해야 합니다. 이 단계는 데이터베이스 관리자가 완료해야 합니다.</p>
-    <p class="BCL-aside">참고: 다중 설치 가능<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크 커넥터. 이 스크립트는 설치 한 커넥터 수에 관계 없이 보고 데이터베이스 당 한 번만 실행 해야 합니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크 보고서가 작동하려면 경험 데이터베이스 (xDB) 보고 데이터베이스에 새 팩트 테이블을 추가해야 합니다. 이 새 테이블을 만드는 스크립트는 SDN에서 사용할 수 있습니다. 이 스크립트는 xDB 보고 데이터베이스에서 실행해야 합니다. 이 단계는 데이터베이스 관리자가 완료해야합니다.</p>
+    <p class="BCL-aside">참고: 여러 개의<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크 커넥터를 설치할 수 있습니다. 이 스크립트는 설치 한 커넥터 수에 관계없이보고 데이터베이스 당 한 번만 실행하면됩니다.</p>
     <h3>다중 서버 구성</h3>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크는 다중 서버 콘텐츠 제작 환경에 설치할 수 있습니다. 귀하의<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>환경이 이러한 방식으로 구성되면 다음을 구성해야합니다.</p>
-    <h4>컨텐츠 관리 서버</h4>
-    <p>스케줄러를 사용하여 미디어를 동기화하는 경우 하나의 CM (콘텐츠 관리) 서버만 스케줄러를 구성하면 됩니다. 다른 CM 서버의 구성 파일에서 예약된 작업을 제거합니다. 그만큼<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>이벤트 큐는 다른 CM 서버의 동기화 유지를 처리합니다.</p>
-    <p class="BCL-aside">참고: 여러 CM 서버에서 스케줄러를 구성해도 문제가 발생하지 않지만 이렇게 하면 이점이 없습니다.</p>
-    <h4>콘텐츠 전송 서버</h4>
-    <p>각 콘텐츠 배달 (CD) 서버에서 지정된 구성 파일에서 다음 인덱스를 제거합니다. 이 인덱스는 CM 환경에서만 필요합니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크는 다중 서버 콘텐츠 제작 환경에 설치할 수 있습니다. 이러한 방식으로<span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>환경이 구성된 경우 다음을 구성해야 합니다.</p>
+    <h4>콘텐츠 관리 서버</h4>
+    <p>스케줄러를 사용하여 미디어를 동기화하는 경우 하나의 CM (Content Management) 서버에만 스케줄러를 구성하면됩니다. 다른 CM 서버의 구성 파일에서 예약 된 작업을 제거하십시오. <span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>이벤트 대기열은 다른 CM 서버의 동기화 상태를 유지합니다.</p>
+    <p class="BCL-aside">참고: 여러 CM 서버에서 스케줄러를 구성해도 문제가 발생하지는 않지만 그렇게해도 이점은 없습니다.</p>
+    <h4>콘텐츠 전달 서버</h4>
+    <p>각 CD (콘텐츠 전송) 서버에서 지정된 구성 파일에서 다음 인덱스를 제거합니다. 이 색인은 CM 환경에서만 필요합니다.</p>
     <table class="bcls-table">
       <tbody class="bcls-table__body">
         <tr>
@@ -617,93 +203,93 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </tbody>
     </table>
     &nbsp;
-    <p>CD 서버를 구성할 때 CM 서버에서 구성 파일을 복사하는 것이 편리할 수 있습니다. 이렇게 하고 미디어를 동기화하는 스케줄러를 추가한 경우 CD 서버의 구성 파일에서 예약된 작업을 제거해야 합니다. CD 서버에서 미디어 동기화를 실행해서는 안 됩니다. 하나의 CM 서버에서 실행되어야 합니다. 게시는 CD 서버에서 미디어 항목을 사용할 수 있도록 하는 데 사용됩니다.</p>
+    <p>CD 서버를 구성 할 때 CM 서버에서 구성 파일을 복사하는 것이 편리 할 수 있습니다. 이 작업을 수행하고 미디어를 동기화하는 스케줄러를 추가 한 경우 CD 서버의 구성 파일에서 예약 된 작업을 제거해야합니다. 미디어 동기화는 CD 서버에서 실행되지 않아야합니다. 하나의 CM 서버에서 실행되어야합니다. 게시는 CD 서버에서 미디어 항목을 사용할 수 있도록하는 데 사용됩니다.</p>
   </div>
   <div class="BCL-concept">
-    <h2 id="linking">연결<span translate="No">Video Cloud</span>계정</h2>
-    <p>이 항목에서는 다음에서 계정을 만드는 방법을 다룹니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove에 해당하는<span translate="No">Video Cloud</span>계정.</p>
+    <h2 id="linking"><span translate="No">비디오 클라우드</span>계정 연결</h2>
+    <p>이 항목에서는 다음에서 계정을 만드는 방법을 다룹니다. <span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span> Brightcove에 해당하는<span translate="No">비디오 클라우드</span>계정.</p>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5028605017001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
-    <h3>브라이트코브에서 계정 자격 증명 받기</h3>
-    <p>Media Framework가 Brightcove에 연결하기 위해<span translate="No">Video Cloud</span> , Brightcove의 계정 자격 증명을 다음에 추가해야합니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> . 이 섹션에서는 브라이트코브에서 계정 자격 증명을 찾는 방법에 대해 설명합니다. 다음 섹션에서는 이러한 자격 증명을 추가하는 방법을 설명합니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> .</p>
+    <h3>Brightcove에서 계정 자격 증명 받기</h3>
+    <p>미디어 프레임워크가 브라이트코브<span translate="No">비디오 클라우드에</span>연결하려면 브라이트코브의 계정 자격 증명을<span translate="No">비디오 클라우드</span><span translate="No">사이트코어에 추가해야 합니다. </span> . 이 섹션에서는 Brightcove에서 계정 자격 증명을 찾는 방법을 설명합니다. 다음 섹션에서는 이러한 자격 증명을<span translate="No"> Video Cloud </span><span translate="No">Sitecore에 추가하는 방법에 대해 설명합니다</span> .</p>
     <ol class="bcls-tasklist">
-      <li>Brightcove에 로그인<span translate="No">Video Cloud</span> . 게시자 ID 값을 유의하십시오. 이것을 입력해야합니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>다음 섹션에서.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-publisher-id.png"/></div>
+      <li>브라이트코브<span translate="No">비디오 클라우드에</span>로그인합니다. 게시자 ID 값을 기록해 둡니다. 다음 섹션에서<span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어에 입력해야 합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-publisher-id.png" /></div>
       </li>
       <li>관리자로 이동합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin.png"/></div>
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin.png" /></div>
       </li>
       <li>API 인증으로 이동합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-api-authentication.png"/></div>
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-api-authentication.png" /></div>
       </li>
-      <li>새 응용 프로그램을 등록합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-register-button.png"/></div>
+      <li>새 응용 프로그램을 등록하십시오.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-register-button.png" /></div>
       </li>
-      <li>애플리케이션 이름을 지정하고, 계정 액세스를 설정하고, API를 사용하도록 설정합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-auth-form.png"/></div>
+      <li>애플리케이션 이름을 지정하고 계정 액세스를 설정하고 API를 활성화합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-auth-form.png" /></div>
       </li>
-      <li>클라이언트 ID 및 클라이언트 암호를 기록해 둡니다. 당신은 그들을 입력해야 할 것입니다<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>다음 섹션에서.
-        <div><img width="400" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-auth-credentials.png"/></div>
+      <li>클라이언트 ID와 클라이언트 시크릿을 기록해 둡니다. 다음 섹션에서<span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어에 입력해야 합니다.
+        <div><img width="400" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-accounts-admin-auth-credentials.png" /></div>
       </li>
     </ol>
-    <h3>Brightcove 계정 추가<span translate="No">Video Cloud</span><span translate="No">Sitecore</span></h3>
-    <p>이 섹션에서는 Brightcove 계정을 추가하는 방법을 설명합니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> .</p>
+    <h3><span translate="No">비디오 클라우드</span><span translate="No">사이트코어에 브라이트코브 계정 추가</span></h3>
+    <p>이 섹션에서는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어에 브라이트코브 계정을 추가하는 방법에 대해 설명합니다</span> .</p>
     <ol class="bcls-tasklist">
-      <li>로그인<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>데스크탑.</li>
-      <li>미디어 라이브러리를 엽니다.</li>
-      <li>미디어 라이브러리 &gt; 미디어 프레임워크 &gt; 계정으로 이동합니다.</li>
-      <li>브라이트코브 계정 항목을 새로 추가합니다.</li>
-      <li>이전 섹션에서 설명한 게시자 ID, 클라이언트 ID 및 클라이언트 암호 값을 입력합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16608-accounts-admin-auth-credentials.png"/></div>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>데스크톱에 로그인합니다.</li>
+      <li>미디어 라이브러리를 엽니 다.</li>
+      <li>미디어 라이브러리&gt; 미디어 프레임 워크&gt; 계정으로 이동합니다.</li>
+      <li>새 Brightcove 계정 항목을 추가하십시오.</li>
+      <li>이전 섹션에서 기록한 게시자 ID, 클라이언트 ID 및 클라이언트 비밀 값을 입력합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="/assets/images/sharepoint/node16608-accounts-admin-auth-credentials.png" /></div>
       </li>
-      <li>항목을 저장합니다.</li>
+      <li>항목을 저장하십시오.</li>
     </ol>
   </div>
   <div class="BCL-concept">
-    <h2 id="players">정의<span translate="No">Video Cloud</span>플레이어</h2>
-    <p>단일 비디오 또는 비디오 재생 목록을 표시하려면 플레이어가 필요합니다. 플레이어는 비디오를 시청하려는 방문자가 사용할 수있는 기능의 종류를 정의합니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 통해 콘텐츠 작성자는 새 플레이어를 추가하고 기존 플레이어를 편집하고 기존 플레이어를 삭제할 수 있습니다.</p>
+    <h2 id="players"><span translate="No">비디오 클라우드</span>플레이어 정의</h2>
+    <p>단일 비디오 또는 비디오 재생 목록을 표시하려면 플레이어가 필요합니다. 플레이어는 비디오를 보려는 방문자가 사용할 수있는 기능의 종류를 정의합니다. <span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 새로운 플레이어를 추가하고 기존 플레이어를 편집하고 기존 플레이어를 삭제할 수 있습니다.</p>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5072647298001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
     <h3>플레이어 추가</h3>
-    <p>이 섹션에서는 수동으로<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>플레이어에 해당하는 항목.</p>
+    <p>이 섹션에서는 플레이어에 해당하는<span translate="No"> Video Cloud </span><span translate="No">Sitecore</span>항목을 수동으로 만드는 방법에 대해 설명합니다.</p>
     <ol class="bcls-tasklist">
-      <li>Brightcove에서<span translate="No">Video Cloud</span>에서 플레이어 섹션으로 이동합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-players-megamenu.png"/></div>
+      <li>브라이트코브<span translate="No">비디오 클라우드에서</span>플레이어 섹션으로 이동합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-players-megamenu.png" /></div>
       </li>
-      <li>만들려는 플레이어를 선택하십시오. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> . 플레이어 ID 값을 확인합니다. 이것을 입력해야합니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>다음 섹션에서.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-players-list.png"/></div>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어에서 만들려는 플레이어를 선택합니다</span> . 플레이어 ID 값을 기록해 둡니다. 다음 섹션에서<span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어에 입력해야 합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-players-list.png" /></div>
       </li>
-      <li>에<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , 미디어 라이브러리에서 Brightcove 계정 항목을 선택합니다.</li>
-      <li>계정 항목을 선택합니다.</li>
-      <li>플레이어 항목을 선택합니다.</li>
-      <li>브라이트코브 비디오 플레이어 항목을 새로 추가합니다. 플레이어 ID를 입력하라는 메시지가 표시됩니다. Brightcove의 값을 입력하십시오. <span translate="No">Video Cloud</span> .</li>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어의</span>미디어 라이브러리에서 브라이트코브 계정 항목을 선택합니다.</li>
+      <li>계정 항목을 선택하십시오.</li>
+      <li>플레이어 항목을 선택하십시오.</li>
+      <li>새 Brightcove 비디오 플레이어 항목을 추가하십시오. 플레이어 ID를 입력하라는 메시지가 표시됩니다. 브라이트코브<span translate="No">비디오 클라우드의 값을 입력합니다</span> .</li>
     </ol>
     <h3>기본 플레이어 설정</h3>
-    <p>비디오 및 재생 목록을 미리 보려면<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , 기본 플레이어를 지정해야합니다. 이 섹션에서는 기본 플레이어를 설정하는 방법에 대해 설명합니다.</p>
+    <p><span translate="No">Video Cloud </span><span translate="No"></span> Sitecore에서 비디오 및 재생 목록을 미리 보기 위해서는 기본 플레이어를 지정해야 합니다. 이 섹션에서는 기본 플레이어를 설정하는 방법을 설명합니다.</p>
     <ol class="bcls-tasklist">
-      <li>에<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , 미디어 라이브러리에서 Brightcove 계정 항목을 선택합니다.</li>
-      <li>계정 항목을 선택합니다.</li>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어의</span>미디어 라이브러리에서 브라이트코브 계정 항목을 선택합니다.</li>
+      <li>계정 항목을 선택하십시오.</li>
       <li>설정 항목을 선택합니다.</li>
-      <li>[기본 비디오 플레이어] 필드 및 [기본 재생 목록 플레이어] 필드의 값을 설정합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-players-default.png"/></div>
+      <li>기본 비디오 플레이어 필드 및 기본 재생 목록 플레이어 필드의 값을 설정합니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-players-default.png" /></div>
       </li>
       <li>항목 저장</li>
     </ol>
     <h3>플레이어 편집</h3>
-    <p>플레이어 항목은 다른 항목과 마찬가지로 편집됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목.</p>
+    <p>플레이어 항목은 다른<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목과 마찬가지로 편집됩니다.</p>
     <h3>플레이어 삭제</h3>
-    <p>플레이어 항목은 다른 항목과 마찬가지로 삭제됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목.</p>
-    <p class="BCL-aside">참고: 플레이어 삭제<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>플레이어가 Brightcove에서 삭제되지는 않습니다. <span translate="No">Video Cloud</span> .</p>
+    <p>플레이어 항목은 다른<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목과 마찬가지로 삭제됩니다.</p>
+    <p class="BCL-aside">참고: <span translate="No">비디오 클라우드</span><span translate="No">사이트코어에서</span>플레이어를 삭제해도 브라이트코브<span translate="No">비디오 클라우드에서 플레이어가 삭제되지는 않습니다</span> .</p>
   </div>
   <div class="BCL-concept">
-    <h2 id="videos">비디오 가져오기, 추가, 미리 보기 및 삭제</h2>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>콘텐츠 작성자는 미디어 프레임 워크를 사용하여 자신의 로컬 컴퓨터에서 비디오를 업로드하고 기존 비디오를 편집 및 삭제할 수 있습니다. 새로운 태그를 정의하여 비디오 콘텐츠를 구성할 수 있습니다.</p>
+    <h2 id="videos">비디오 가져 오기, 추가, 미리보기 및 삭제</h2>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 자신의 로컬 컴퓨터에서 비디오를 업로드하고 기존 비디오를 편집 및 삭제할 수 있습니다. 비디오 콘텐츠를 구성하기 위해 새 태그를 정의 할 수 있습니다.</p>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5077193027001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
-    <h3>비디오 가져오기</h3>
-    <p>ㅏ<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>콘텐츠 작성자 또는 관리자는 미디어 가져 오기 프로세스를 수동으로 트리거 할 수 있습니다.</p>
-    <aside class="bcls-aside bcls-aside--information">비디오를 가져올 때<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>업로드 날짜가 아닌 동영상을 가져온 현재 날짜를 반영합니다. <span translate="No">Video Cloud</span> . 이전에 기존을 이동하는 경우<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>구현하면 이전 콘텐츠를 마이그레이션 할 수 있으며 커넥터는 이러한 비디오를 인식합니다.</aside>
-    <p>브라이트코브 Video Connect 플러그인에는 정기적으로 미디어를 자동으로 동기화하는 에이전트가 포함되어 있습니다. 에이전트는 다음 위치에 정의됩니다.</p>
+    <h3>비디오 가져 오기</h3>
+    <p><span translate="No">Video Cloud </span><span translate="No">Sitecore</span>콘텐츠 작성자 또는 관리자는 미디어 가져오기 프로세스를 수동으로 트리거할 수 있습니다.</p>
+    <aside class="bcls-aside bcls-aside--information">비디오를 가져올 때<span translate="No"> Video Cloud </span><span translate="No">Sitecore에 동영상 내 업로드 날짜가 아니라 가져온 현재 날짜가</span>반영됩니다. <span translate="No">비디오 클라우드</span> . 기존<span translate="No"> Video Cloud </span><span translate="No">Sitecore</span>구현을 이동하는 경우 이전 콘텐츠를 마이그레이션하면 커넥터가 이러한 비디오를 인식하게 됩니다.</aside>
+    <p>Brightcove Video Connect 플러그인에는 정기적으로 미디어를 자동으로 동기화하는 에이전트가 포함되어 있습니다. 에이전트는 다음 위치에 정의됩니다.</p>
     <table class="bcls-table">
       <tbody class="bcls-table__body">
         <tr>
@@ -717,162 +303,163 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </tbody>
     </table>
     <ol class="bcls-tasklist">
-      <li>맨 위 메뉴를 마우스 오른쪽 단추로 클릭하고 미디어 프레임워크를 선택하여 미디어 프레임워크 리본을 표시합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-menu.png"/></div>
+      <li>상단 메뉴를 마우스 오른쪽 버튼으로 클릭하고 미디어 프레임 워크를 선택하여 미디어 프레임 워크 리본을 표시합니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-menu.png" /></div>
       </li>
-      <li>미디어 프레임워크 리본을 클릭합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-media-framework.png"/></div>
+      <li>미디어 프레임 워크 리본을 클릭합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-media-framework.png" /></div>
       </li>
-      <li>모두 가져오기 단추를 클릭합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-import-all.png"/></div>
+      <li>모두 가져 오기 버튼을 클릭합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-import-all.png" /></div>
       </li>
-      <li>가져오기 프로세스가 실행되면 상태 상자가 나타납니다. 상태 상자가 사라지면 가져오기 프로세스가 완료된 것입니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-progress-bar.png"/></div>
+      <li>가져 오기 프로세스가 실행되면 상태 상자가 나타납니다. 상태 상자가 사라지면 가져 오기 프로세스가 완료된 것입니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-progress-bar.png" /></div>
       </li>
-      <li>미디어를 가져왔는지 확인하려면 [검색] 탭을 클릭합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search-tab.png"/></div>
+      <li>미디어를 가져 왔는지 확인하려면 검색 탭을 클릭합니다.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search-tab.png" /></div>
       </li>
-      <li>검색을 수행합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search.png"/></div>
+      <li>검색을 수행하십시오.
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search.png" /></div>
       </li>
       <li>비디오를 필터링합니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-filter.png"/></div>
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-filter.png" /></div>
       </li>
       <li>검색 결과가 표시됩니다.
-        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-video-list.png"/></div>
+        <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-video-list.png" /></div>
       </li>
     </ol>
     <h3>비디오 추가</h3>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 통해 콘텐츠 작성자는 새 비디오를 추가 할 수 있습니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 새 비디오를 추가할 수 있습니다.</p>
     <ol class="bcls-tasklist">
-      <li>열기<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 라이브러리.</li>
-      <li>재생목록을 만들려는 동영상이 있는 계정으로 이동합니다.</li>
-      <li>미디어 컨텐츠 항목으로 이동합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-media-content.png"/></div>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 라이브러리를 엽니다.</li>
+      <li>재생 목록을 만들려는 동영상이있는 계정으로 이동합니다.</li>
+      <li>미디어 콘텐츠 항목으로 이동합니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-media-content.png" /></div>
       </li>
-      <li>브라이트코브 비디오를 클릭합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-playlists-add-button.png"/></div>
+      <li>Brightcove 비디오를 클릭합니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-playlists-add-button.png" /></div>
       </li>
       <li>파일 추가를 클릭합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-files.png"/></div>
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-files.png" /></div>
       </li>
-      <li>로컬 시스템에서 업로드할 파일을 선택합니다.</li>
+      <li>로컬 컴퓨터에서 업로드 할 파일을 선택합니다.</li>
       <li>시작 을 클릭합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-files-start.png"/></div>
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-files-start.png" /></div>
       </li>
-      <li>동영상이 업로드되면 업로더 창을 닫습니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-files-uploaded.png"/></div>
+      <li>동영상이 업로드되면 업 로더 창을 닫습니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-add-files-uploaded.png" /></div>
       </li>
     </ol>
     <h3>태그 정의</h3>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 사용하면 콘텐츠 작성자가 새 태그를 추가 할 수 있습니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-tags-item.png"/><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-tags-button.png"/></div>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 새 태그를 추가할 수 있습니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-tags-item.png" /><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-tags-button.png" /></div>
     <ol class="bcls-tasklist">
-      <li>열기<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 라이브러리.</li>
-      <li>태그를 만들려는 비디오가 포함된 계정으로 이동합니다.</li>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 라이브러리를 엽니다.</li>
+      <li>태그를 생성하려는 동영상이있는 계정으로 이동합니다.</li>
       <li>태그 항목으로 이동합니다.</li>
-      <li>브라이트코브 태그를 클릭합니다.</li>
-      <li>품목명을 입력합니다. 이것은 태그가 될 것입니다.</li>
+      <li>Brightcove 태그를 클릭하십시오.</li>
+      <li>항목 이름을 입력하십시오. 이것이 태그가됩니다.</li>
     </ol>
     <h3>비디오 및 태그 편집</h3>
-    <p>비디오 및 태그 항목은 다른 항목과 마찬가지로 편집됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목.</p>
+    <p>비디오 및 태그 항목은 다른<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목과 마찬가지로 편집됩니다.</p>
     <h3>비디오 및 태그 삭제</h3>
-    <p>비디오 및 태그 항목은 다른 항목과 마찬가지로 삭제됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목.</p>
+    <p>비디오 및 태그 항목은 다른<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목과 마찬가지로 삭제됩니다.</p>
   </div>
   <div class="BCL-concept">
-    <h2 id="search">동영상 및 재생목록 검색</h2>
-    <p>동영상 및 재생 목록은 이름과 설명에서 텍스트 문자열을 검색하여 찾을 수 있습니다. 동영상은 사용자 정의 필드에서 텍스트 문자열을 검색하여 찾을 수도 있습니다.</p>
+    <h2 id="search">비디오 및 재생 목록 검색</h2>
+    <p>이름과 설명에서 텍스트 문자열을 검색하여 비디오 및 재생 목록을 찾을 수 있습니다. 사용자 정의 필드에서 텍스트 문자열을 검색하여 비디오를 찾을 수도 있습니다.</p>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5078428048001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
-    <h3>검색 중</h3>
-    <p>[검색] 탭을 클릭하여 미디어를 검색합니다. 이름 또는 설명 필드에 검색할 텍스트를 입력합니다.</p>
-    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search-tab.png"/></div>
-    <p>돋보기를 클릭하여 검색을 수행합니다.</p>
-    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search.png"/></div>
+    <h3>수색</h3>
+    <p>미디어를 검색하려면 검색 탭을 클릭합니다. 이름 또는 설명 필드에 검색 할 텍스트를 입력하십시오.</p>
+    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search-tab.png" /></div>
+    <p>검색을 수행하려면 돋보기를 클릭하십시오.</p>
+    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-search.png" /></div>
     <h3>필터링</h3>
-    <p>검색 결과는 동영상 또는 재생목록과 같은 유형별, 날짜 및 기타 속성별로 필터링할 수 있습니다.</p>
-    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-filter.png"/></div>
+    <p>검색 결과는 비디오 또는 재생 목록과 같은 유형, 날짜 및 기타 속성별로 필터링 할 수 있습니다.</p>
+    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-filter.png" /></div>
     <p>검색 결과가 표시됩니다.</p>
-    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-video-list.png"/></div>
+    <div><img width="850" class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-videos-import-video-list.png" /></div>
   </div>
   <div class="BCL-concept">
-    <h2 id="playlists">재생 목록 가져오기, 추가, 미리 보기 및 삭제</h2>
-    <p>재생 목록은 단일 플레이어의 비디오 모음입니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 사용하면 콘텐츠 작성자가 새 재생 목록을 추가하고 기존 재생 목록을 편집하고 기존 재생 목록을 삭제할 수 있습니다.</p>
-    <aside class="bcls-aside bcls-aside--information">재생 목록을 가져올 때<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>내부 생성 날짜가 아니라 재생 목록을 가져온 현재 날짜를 반영합니다. <span translate="No">Video Cloud</span> . 이전에 기존을 이동하는 경우<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>구현하면 이전 콘텐츠를 마이그레이션 할 수 있으며 커넥터는 이러한 비디오를 인식합니다.</aside>
+    <h2 id="playlists">재생 목록 가져 오기, 추가, 미리보기 및 삭제</h2>
+    <p>재생 목록은 단일 플레이어에있는 동영상 모음입니다. <span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 새 재생 목록을 추가하고 기존 재생 목록을 편집하고 기존 재생 목록을 삭제할 수 있습니다.</p>
+    <aside class="bcls-aside bcls-aside--information">재생 목록을 가져오면<span translate="No"> Video Cloud </span><span translate="No">Sitecore에 재생 목록을 가져온 현재 날짜가 아닌 내부 생성 날짜가</span>반영됩니다. <span translate="No">비디오 클라우드</span> . 기존<span translate="No"> Video Cloud </span><span translate="No">Sitecore</span>구현을 이동하는 경우 이전 콘텐츠를 마이그레이션하면 커넥터가 이러한 비디오를 인식하게 됩니다.</aside>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5078707813001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
     <h3>재생 목록 추가</h3>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 사용하면 콘텐츠 작성자가 새 재생 목록을 추가 할 수 있습니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 새 재생 목록을 추가할 수 있습니다.</p>
     <ol class="bcls-tasklist">
-      <li>열기<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 라이브러리.</li>
-      <li>재생목록을 만들려는 동영상이 포함된 계정으로 이동합니다.</li>
-      <li>미디어 컨텐츠 항목으로 이동합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-playlists-add-button.png"/></div>
+      <li><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 라이브러리를 엽니다.</li>
+      <li>재생 목록을 만들려는 비디오가있는 계정으로 이동합니다.</li>
+      <li>미디어 콘텐츠 항목으로 이동합니다.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-playlists-add-button.png" /></div>
       </li>
-      <li>브라이트코브 재생 목록 항목을 새로 추가합니다.
-        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-playlists-add-media-content.png"/></div>
+      <li>새 Brightcove 재생 목록 항목을 추가하십시오.
+        <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-playlists-add-media-content.png" /></div>
       </li>
-      <li>이름 필드에 비디오의 설명이 포함된 이름을 입력합니다.</li>
-      <li>비디오 ID 필드에서 재생 목록에 포함할 비디오를 선택합니다.</li>
+      <li>이름 필드에 비디오를 설명하는 이름을 입력합니다.</li>
+      <li>비디오 ID 필드에서 재생 목록에 포함 할 비디오를 선택합니다.</li>
     </ol>
     <h3>재생 목록 편집</h3>
-    <p>재생 목록 항목은 다른 항목과 마찬가지로 편집됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목.</p>
-    <h3>재생목록 삭제</h3>
-    <p>재생 목록 항목은 다른 항목과 마찬가지로 삭제됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목.</p>
+    <p>재생 목록 항목은 다른<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목과 마찬가지로 편집됩니다.</p>
+    <h3>재생 목록 삭제</h3>
+    <p>재생 목록 항목은 다른<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목과 마찬가지로 삭제됩니다.</p>
   </div>
   <div class="BCL-concept">
-    <h2 id="embedding">비디오 추가<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>웹 사이트</h2>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 사용하면 콘텐츠 작성자가 다양한 방법으로 페이지에 미디어를 삽입 할 수 있습니다. 이 장에서는 사용 가능한 옵션에 대해 설명합니다.</p>
+    <h2 id="embedding"><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>웹 사이트에 비디오 추가</h2>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 콘텐츠 작성자가 다양한 방식으로 자신의 페이지에 미디어를 삽입할 수 있습니다. 이 장에서는 사용 가능한 옵션에 대해 설명합니다.</p>
     <div class="training-video-player-ipx" data-experience="5a73630f7afd7a00101bc1b5" data-video-ids="5080020778001">&nbsp;</div>
     <script src="https://players.brightcove.net/20318290001/experience_5a73630f7afd7a00101bc1b5/live.js"></script>
-    <h3>서식 있는 텍스트 편집기</h3>
-    <p>서식 있는 텍스트 필드를 사용하면 콘텐츠 작성자가 서식이 지정된 콘텐츠를 페이지에 삽입할 수 있습니다. 컨텐츠 작성자는 서식 있는 텍스트 편집기를 사용하여 이 서식이 지정된 컨텐츠를 만들고 편집합니다. 이 섹션에서는<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크는 서식있는 텍스트 편집기에 추가됩니다.</p>
-    <h4>미디어 임베드</h4>
-    <p>미디어를 서식 있는 텍스트 필드에 직접 포함할 수 있습니다.</p>
+    <h3>리치 텍스트 편집기</h3>
+    <p>서식있는 텍스트 필드를 사용하면 콘텐츠 작성자가 서식이 지정된 콘텐츠를 페이지에 삽입 할 수 있습니다. 콘텐츠 작성자는 서식있는 텍스트 편집기를 사용하여이 형식이 지정된 콘텐츠를 만들고 편집합니다. 이 섹션에서는<span translate="No"> Video Cloud </span><span translate="No">Sitecore</span>미디어 프레임워크가 서식 있는 텍스트 편집기에 추가하는 기능에 대해 설명합니다.</p>
+    <h4>미디어 삽입</h4>
+    <p>리치 텍스트 필드에 미디어를 직접 삽입 할 수 있습니다.</p>
     <ol class="bcls-tasklist">
-      <li>서식 있는 텍스트 편집기에서 [미디어 삽입] 단추를 클릭합니다.</li>
-      <li>검색 화면을 사용하여 삽입할 미디어를 찾습니다. 삽입할 미디어를 나타내는 행을 클릭합니다. 다음 &gt; 버튼을 클릭합니다.</li>
-      <li>선택한 미디어 유형에 따라 추가 옵션이 표시됩니다. 예를 들어 비디오를 선택하는 경우 비디오를 표시하는 데 사용할 플레이어를 플레이어의 크기와 함께 지정해야합니다.  마침을 클릭합니다 .</li>
-      <li>미디어가 서식있는 텍스트 필드에 포함되어 있습니다.</li>
+      <li>서식있는 텍스트 편집기에서 미디어 삽입 버튼을 클릭합니다.</li>
+      <li>검색 화면을 사용하여 삽입 할 미디어를 찾습니다. 삽입 할 미디어를 나타내는 행을 클릭합니다. 다음&gt; 버튼을 클릭합니다.</li>
+      <li>선택한 미디어 유형에 따라 추가 옵션이 표시됩니다. 예를 들어 비디오를 선택하는 경우 플레이어의 크기와 함께 비디오를 표시하는 데 사용할 플레이어를 지정해야합니다. 마침을 클릭합니다.</li>
+      <li>미디어는 서식있는 텍스트 필드에 포함됩니다.</li>
     </ol>
     <h4>미디어 링크 포함</h4>
-    <p>리치 텍스트 필드에 미디어 링크를 삽입할 수 있습니다.</p>
+    <p>미디어 링크를 서식있는 텍스트 필드에 삽입 할 수 있습니다.</p>
     <ol class="bcls-tasklist">
-      <li>서식 있는 텍스트 편집기에서 [미디어 링크 포함] 단추를 클릭합니다.</li>
-      <li>검색 화면을 사용하여 삽입할 미디어를 찾습니다. 삽입할 미디어를 나타내는 행을 클릭합니다. 다음 &gt; 버튼을 클릭합니다.</li>
-      <li>링크 제목에 값을 입력합니다. 이것은 미디어 링크에 대해 나타날 텍스트입니다.<br/>또한 선택한 미디어 유형에 따라 추가 옵션이 표시됩니다. 예를 들어 비디오를 선택하는 경우 비디오를 표시하는 데 사용할 플레이어를 플레이어의 크기와 함께 지정해야합니다.  마침을 클릭합니다 .</li>
-      <li>링크가 서식 있는 텍스트 필드에 포함되어 있습니다.</li>
+      <li>서식있는 텍스트 편집기에서 미디어 링크 포함 버튼을 클릭합니다.</li>
+      <li>검색 화면을 사용하여 삽입 할 미디어를 찾습니다. 삽입 할 미디어를 나타내는 행을 클릭합니다. 다음&gt; 버튼을 클릭합니다.</li>
+      <li>링크 제목에 대한 값을 입력하십시오. 이것은 미디어 링크에 표시되는 텍스트입니다.<br />
+        또한 선택한 미디어 유형에 따라 추가 옵션이 표시됩니다. 예를 들어 비디오를 선택하는 경우 플레이어의 크기와 함께 비디오를 표시하는 데 사용할 플레이어를 지정해야합니다. 마침을 클릭합니다.</li>
+      <li>서식있는 텍스트 필드에 링크가 포함됩니다.</li>
     </ol>
-    <h3>렌더링</h3>
-    <p>렌더링을 사용하면 내용을 페이지의 특정 위치에 배치 할 수 있습니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크에는 콘텐츠 작성자가 페이지에 미디어를 삽입 할 수있는 렌더링이 포함되어 있습니다.</p>
+    <h3>표현</h3>
+    <p>렌더링을 통해 콘텐츠를 페이지의 특정 위치에 배치 할 수 있습니다. <span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크에는 콘텐츠 작성자가 페이지에 미디어를 삽입할 수 있는 렌더링이 포함되어 있습니다.</p>
     <h4>미디어 렌더링 포함</h4>
     <ol class="bcls-tasklist">
-      <li>페이지 편집기를 사용하여 자리 표시자에 렌더링을 추가합니다.</li>
-      <li>미디어 포함 렌더링을 선택합니다.</li>
-      <li>렌더링이 자리 표시자에 추가되었습니다. 이제 미디어 요소 포함 버튼을 클릭합니다.</li>
-      <li>검색 화면을 사용하여 삽입할 미디어를 찾습니다. 삽입할 미디어를 나타내는 행을 클릭합니다. 다음 &gt; 버튼을 클릭합니다.</li>
-      <li>선택한 미디어 유형에 따라 추가 옵션이 표시됩니다. 예를 들어 비디오를 선택하는 경우 비디오를 표시하는 데 사용할 플레이어를 플레이어의 크기와 함께 지정해야합니다.  마침을 클릭합니다 .</li>
-      <li>렌더링을 위해 미디어가 선택되었습니다.</li>
+      <li>페이지 편집기를 사용하여 자리 표시 자에 렌더링을 추가합니다.</li>
+      <li>Embed Media 렌더링을 선택합니다.</li>
+      <li>렌더링이 자리 표시 자에 추가되었습니다. 이제 미디어 요소 포함 버튼을 클릭합니다.</li>
+      <li>검색 화면을 사용하여 삽입 할 미디어를 찾습니다. 삽입 할 미디어를 나타내는 행을 클릭합니다. 다음&gt; 버튼을 클릭합니다.</li>
+      <li>선택한 미디어 유형에 따라 추가 옵션이 표시됩니다. 예를 들어 비디오를 선택하는 경우 플레이어의 크기와 함께 비디오를 표시하는 데 사용할 플레이어를 지정해야합니다. 마침을 클릭합니다.</li>
+      <li>렌더링 할 미디어가 선택되었습니다.</li>
     </ol>
   </div>
   <div class="BCL-concept">
-    <h2 id="synchronization">사이 동기화<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>과<span translate="No">Video Cloud</span></h2>
-    <p>이 섹션에서는 동영상과 재생 목록을<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>다음 시나리오의 경우 :</p>
+    <h2 id="synchronization"><span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어와<span translate="No">비디오 클라우드 간의 동기화</span></h2>
+    <p>이 섹션에서는 다음과 같은 시나리오에서<span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>간에 비디오 및 재생 목록을 동기화하는 방법을 다룹니다.</p>
     <ul>
-      <li>브라이트코브에서 비디오 및 재생목록이 삭제되는 경우</li>
-      <li>동영상 및 재생 목록이 추가 된 경우<span translate="No">Video Cloud</span><span translate="No">Sitecore</span></li>
-      <li>비디오 및 재생 목록이<span translate="No">Video Cloud</span><span translate="No">Sitecore</span></li>
+      <li>Brightcove에서 비디오 및 재생 목록이 삭제 된 경우</li>
+      <li>동영상과 재생목록이 추가되었을 때<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span></li>
+      <li>비디오 및 재생 목록이 다음에서 삭제될 때<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span></li>
     </ul>
-    <p>Brightcove에서 다음으로 가져 오기<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>이전에 다루었 다<a href="#videos">여기</a> .</p>
+    <p>Brightcove에서 다음으로 가져오기<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>이전에 다룬<a href="#videos">여기</a> .</p>
     <h3>비디오 내보내기</h3>
-    <p>이내에<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , Brightcove 미디어는<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 가져 오기 프로세스 중에 생성 된 항목. 그들이 있기 때문에<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>사용자가 해당 항목을 변경할 수 있습니다. 미디어 내보내기 프로세스는<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove로.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>내에서 브라이트코브 미디어는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어를 사용하여 액세스합니다. </span>미디어 가져오기 프로세스 중에 만들어진 항목입니다. <span translate="No">Video Cloud </span><span translate="No">Sitecore</span>항목이므로 사용자가 해당 항목을 변경할 수 있습니다. 미디어 내보내기 프로세스는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어에서 브라이트코브로 변경 사항을 내보내는</span>작업을 담당합니다.</p>
     <h4>자동 미디어 내보내기</h4>
-    <p>때<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove 미디어에 해당하는 항목이 생성, 저장 또는 삭제됩니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>이러한 변경 사항은 Brightcove에 푸시됩니다.</p>
+    <p>브라이트코브 미디어에 해당하는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>항목이<span translate="No">비디오 클라우드에서 생성, 저장 또는 삭제된 경우</span><span translate="No">사이트코어</span>클라이언트에서는 이러한 변경 사항이 브라이트코브로 푸시됩니다.</p>
     <h4>실시간 내보내기</h4>
-    <p>새 미디어 항목이 생성 될 때<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , 실시간 내보내기가 기본적으로 수행됩니다. 즉, 내보내기 작업이 즉시 수행됩니다.</p>
+    <p><span translate="No">Video Cloud </span><span translate="No"></span> Sitecore에서 새 미디어 항목이 생성되면 기본적으로 실시간 내보내기가 수행됩니다. 즉, 내보내기 작업이 즉시 수행됩니다.</p>
     <h4>자동 내보내기 방지</h4>
-    <p>변경을 원하지 않을 수도 있습니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove로 내보낼 수 있습니다. 당신은 연결을 원할 수 있습니다<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove를 읽기 전용으로 설정하여 Brightcove 변경 사항을<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>하지만 어디<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>변경 사항은 Brightcove로 내보내지지 않습니다.</p>
-    <p>변경을 방지하기 위해<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove로 내 보내지 않으려면 다음 설정의 값을 지 웁니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어에서 변경한 내용을 브라이트코브로 내보내지 않을 수 있습니다. <span translate="No">비디오 클라우드</span><span translate="No">사이트코어에서</span>브라이트코브로의 연결을 읽기 전용으로 설정해야 할 수 있습니다. 여기서 브라이트코브의 변경 사항을<span translate="No">비디오 클라우드로 가져옵니다.</span><span translate="No"></span>사이트코어이지만<span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>변경 사항이 브라이트코브로 내보내지지 않습니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어에서 변경한 내용이 브라이트코브로 내보내지 않도록 하려면 다음 설정 값을 지웁니다.</p>
     <table class="bcls-table">
       <tbody class="bcls-table__body">
         <tr>
@@ -886,16 +473,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       </tbody>
     </table>
     &nbsp;
-    <p class="BCL-aside">참고: 이 설정은<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove Video Connect 플러그인이 아닌 미디어 프레임 워크. 이 설정을 변경하면 모든 커넥터와 모든 계정에 적용됩니다.</p>
+    <p class="BCL-aside">참고: 이 설정은 브라이트코브<span translate="No">비디오 연결 플러그인뿐만 아니라 비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크에 적용됩니다. 이 설정을 변경하면 모든 커넥터와 모든 계정에 적용됩니다.</p>
     <h3>데이터 정리</h3>
-    <p>정리 프로세스를 사용하여<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>동기화 된 Brightcove 데이터.</p>
-    <h4><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>대청소</h4>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span>정리는 Brightcove에서 미디어가 삭제 될 때 실행되는 프로세스입니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>항목을 삭제해야합니다. Brightcove는<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> , Brightcove는 알릴 수 없습니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>해당 미디어가 삭제되었습니다. 따라서, <span translate="No">Video Cloud</span><span translate="No">Sitecore</span>능동적이어야합니다.</p>
+    <p>정리 프로세스는<span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어와 브라이트코브 데이터를 동기화하는 데 사용됩니다.</p>
+    <h4><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>정리</h4>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>정리는 브라이트코브 및 해당<span translate="No">비디오 클라우드에서 미디어가 삭제될 때 실행되는 프로세스입니다.</span><span translate="No">사이트코어</span>항목을 삭제해야 합니다. 브라이트코브는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어에</span>대해 아무 것도 알지 못하기 때문에 브라이트코브는<span translate="No">비디오 클라우드</span><span translate="No">사이트코어에 알릴 수 없습니다.</span>해당 미디어가 삭제되었습니다. 따라서<span translate="No">비디오 클라우드</span><span translate="No">사이트코어는 사전</span>예방적이어야 합니다.</p>
     <h4>수동 정리</h4>
-    <p>ㅏ<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>콘텐츠 작성자 또는 관리자는 콘텐츠 편집기에서 다음 버튼을 클릭하여 정리 프로세스를 수동으로 트리거 할 수 있습니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-cleanup-cleanup-all-button.png"/></div>
+    <p><span translate="No">Video Cloud </span><span translate="No">Sitecore</span>콘텐츠 작성자 또는 관리자는 콘텐츠 편집기에서 다음 버튼을 클릭하여 정리 프로세스를 수동으로 트리거할 수 있습니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-cleanup-cleanup-all-button.png" /></div>
     <h4>자동 정리</h4>
-    <p>브라이트코브 Video Connect 플러그인에는 정기적으로 정리 프로세스를 자동으로 실행하는 에이전트가 포함되어 있습니다. 에이전트는 다음 위치에 정의됩니다.</p>
+    <p>Brightcove Video Connect 플러그인에는 정기적으로 정리 프로세스를 자동으로 실행하는 에이전트가 포함되어 있습니다. 에이전트는 다음 위치에 정의됩니다.</p>
     <table class="bcls-table">
       <tbody class="bcls-table__body">
         <tr>
@@ -908,222 +495,69 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
       </tbody>
     </table>
-    <h4>브라이트코브 정리</h4>
-    <p>Brightcove 정리는 미디어 항목이 삭제 될 때 실행되는 프로세스입니다. <span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove의 해당 미디어를 삭제하거나 비활성화해야합니다. Brightcove는 미디어 항목이 삭제되었음을 알고 있으므로<span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Brightcove의 해당 미디어를 삭제하거나 비활성화해야한다고 Brightcove에 알릴 수 있습니다.</p>
-    <p>미디어 항목이<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>클라이언트의 경우 내보내기 대기열에 항목이 만들어집니다. 이 프로세스는 미디어 항목을 저장할 때와 동일합니다.</p>
+    <h4>Brightcove 정리</h4>
+    <p>브라이트코브 정리는<span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어에서 미디어 항목이 삭제되고 브라이트코브의 해당 미디어를 삭제하거나 비활성화해야 할 때 실행되는 프로세스입니다. 브라이트코브는 미디어 항목이 삭제되었음을 알고 있기 때문에<span translate="No">비디오 클라우드</span><span translate="No"></span>사이트코어는 브라이트코브의 해당 미디어를 삭제하거나 비활성화해야 함을 브라이트코브에 알릴 수 있습니다.</p>
+    <p><span translate="No">Video Cloud </span><span translate="No">Sitecore</span>클라이언트에서 미디어 항목이 삭제되면 내보내기 대기열에 항목이 만들어집니다. 프로세스는 미디어 항목을 저장할 때와 동일합니다.</p>
   </div>
   <div class="BCL-concept">
     <h2 id="analytics">재생 이벤트 분석</h2>
-    <p>그만큼<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크를 사용하면 비디오 재생 이벤트를 기록하여<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>디지털 마케팅 시스템 (DMS). 이 섹션에서는 사용 가능한 옵션에 대해 설명합니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크를 사용하면 비디오 클라우드에서 사용하기 위해 비디오 재생 이벤트를 기록할 수 있습니다<span translate="No">.</span><span translate="No">사이트코어</span>디지털 마케팅 시스템 (DMS). 이 섹션에서는 사용 가능한 옵션에 대해 설명합니다.</p>
     <h3>재생 이벤트</h3>
-    <p>재생 이벤트는 비디오 플레이어 동작의 결과로 DMS 페이지 이벤트를 기록하는 데 사용됩니다. 예를 들어 비디오 재생이 시작되면 DMS 페이지 이벤트를 작성할 수 있습니다.</p>
+    <p>재생 이벤트는 비디오 플레이어 작업의 결과로 DMS 페이지 이벤트를 기록하는 데 사용됩니다. 예를 들어 비디오 재생이 시작되면 DMS 페이지 이벤트를 작성할 수 있습니다.</p>
     <h4>기본 재생 이벤트</h4>
-    <p><span translate="No">Video Cloud</span><span translate="No">Sitecore</span> Media Framework는 다음 재생 이벤트와 함께 제공됩니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">사이트코어</span>미디어 프레임워크는 다음과 같은 재생 이벤트와 함께 제공됩니다.</p>
     <ul>
-      <li>재생이 시작됨</li>
+      <li>재생 시작됨</li>
       <li>재생 완료</li>
       <li>재생 오류</li>
     </ul>
     <h4>계정에 대한 재생 이벤트 구성</h4>
-    <p>기본적으로 재생이 시작되고 재생 완료된 이벤트가 기록됩니다. 브라이트코브 계정 항목 아래의 설정 항목에서 활성화됩니다.</p>
-    <p>설정 항목에는 재생 이벤트 규칙이라는 필드가 있습니다. Media Framework에 비디오 및 재생 목록에 지정된 이벤트를 기록하도록 지시하는 규칙이 정의됩니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-rules.png"/></div>
-    <h4>계정에 대한 재생 이벤트 사용 안 함</h4>
-    <p>특정 계정에 대해 모든 재생 이벤트를 비활성화할 수 있습니다.</p>
+    <p>기본적으로 재생 시작 및 재생 완료 이벤트가 기록됩니다. 이는 Brightcove 계정 항목 아래의 설정 항목에서 활성화됩니다.</p>
+    <p>설정 항목에는 재생 이벤트 규칙이라는 필드가 있습니다. 비디오 및 재생 목록에 지정된 이벤트를 기록하도록 미디어 프레임 워크에 지시하는 규칙이 정의됩니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-rules.png" /></div>
+    <h4>계정에 대한 재생 이벤트 비활성화</h4>
+    <p>특정 계정에 대해 모든 재생 이벤트를 비활성화 할 수 있습니다.</p>
     <ol class="bcls-tasklist">
-      <li>컨텐츠 편집기에서 미디어 라이브러리&gt; 미디어 프레임 워크&gt; 계정 아래에서 계정으로 이동합니다.</li>
+      <li>콘텐츠 편집기에서 미디어 라이브러리&gt; 미디어 프레임 워크&gt; 계정 아래의 계정으로 이동합니다.</li>
       <li>설정 항목을 선택합니다.</li>
-      <li>재생 이벤트 규칙 필드는 재생 이벤트를 등록하기 위해 충족되어야 하는 조건을 설명합니다. 기본적으로 조건은 “true”이며 “항상”을 의미합니다. 규칙 편집 단추를 클릭하여 조건을 변경하거나 기존 규칙을 제거합니다.</li>
+      <li>재생 이벤트 규칙 필드는 재생 이벤트를 등록하기 위해 충족해야하는 조건을 설명합니다. 기본적으로 조건은 "항상"을 의미하는 "true"입니다. 조건을 변경하거나 기존 규칙을 제거하려면 규칙 편집 단추를 클릭하십시오.</li>
     </ol>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-rules-empty.png"/></div>
-    <h4>미디어의 재생 이벤트 지정</h4>
-    <p>각 재생 목록 및 비디오 항목에는 Events라는 필드가 있습니다. 이 필드는 지정된 항목에 대해 처리될 재생 이벤트를 결정합니다.</p>
-    <p>다음 스크린샷은 비디오에 대해 재생 이벤트가 지정되었음을 나타냅니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-events.png"/></div>
-    <p class="BCL-aside">참고: Standard Values는 모든 재생목록과 동영상에 대해 특정 이벤트가 녹화되도록 하는 데 사용할 수 있지만, 이 필드에서는 개별 재생목록과 동영상에 고유한 이벤트를 선택할 수도 있습니다.</p>
-    <p class="BCL-aside">참고: 이러한 이벤트는 브라이트코브 계정 항목의 설정 항목에 “미디어 항목 이벤트 추가” 동작으로 구성된 재생 이벤트 규칙 필드가 있는 경우에만 기록됩니다. 3.1.2 절을 참고하십시오.</p>
-    <h4>새 재생 이벤트 만들기</h4>
-    <p>비디오 재생에 대한 자세한 정보를 캡처하기 위해 새 재생 이벤트를 추가할 수 있습니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-rules-empty.png" /></div>
+    <h4>미디어에 대한 재생 이벤트 지정</h4>
+    <p>각 재생 목록 및 비디오 항목에는 이벤트라는 필드가 있습니다. 이 필드는 지정된 항목에 대해 처리 할 재생 이벤트를 결정합니다.</p>
+    <p>다음 스크린 샷은 비디오에 대해 재생 이벤트가 지정되었음을 나타냅니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-events.png" /></div>
+    <p class="BCL-aside">참고: 표준 값을 사용하여 모든 재생 목록 및 비디오에 대해 특정 이벤트가 기록되도록 할 수 있지만이 필드에서는 개별 재생 목록 및 비디오에서 자체 이벤트를 선택할 수도 있습니다.</p>
+    <p class="BCL-aside">참고: 이러한 이벤트는 Brightcove 계정 항목 아래의 설정 항목에 "미디어 항목 이벤트 추가"작업으로 구성된 재생 이벤트 규칙 필드가있는 경우에만 기록됩니다. 섹션 3.1.2를 참조하십시오.</p>
+    <h4>새 재생 이벤트 생성</h4>
+    <p>비디오 재생에 대한 자세한 정보를 캡처하기 위해 새 재생 이벤트를 추가 할 수 있습니다.</p>
     <ol class="bcls-tasklist">
-      <li>컨텐츠 편집기에서 시스템&gt; 모듈&gt; 미디어 프레임 워크&gt; 재생 이벤트로 이동합니다.</li>
-      <li>재생 이벤트 템플릿을 사용하여 새 항목 추가</li>
-      <li>페이지 이벤트 필드에서 재생이 변경됨을 선택합니다.</li>
-      <li>매개변수 필드에 다음 형식 중 하나로 값을 입력할 수 있습니다.
+      <li>콘텐츠 편집기에서 시스템&gt; 모듈&gt; 미디어 프레임 워크&gt; 재생 이벤트로 이동합니다.</li>
+      <li>템플릿 재생 이벤트를 사용하여 새 항목 추가</li>
+      <li>페이지 이벤트 필드에서 재생 변경을 선택하십시오.</li>
+      <li>매개 변수 필드에 다음 형식 중 하나로 값을 입력 할 수 있습니다.
         <ol type="a">
-          <li>번호 - 비디오가이 시간 (초) 을 재생 한 후 페이지 이벤트가 기록됩니다. 유효한 값의 예는 15입니다.</li>
-          <li>백분율 - 비디오가이 금액을 재생 한 후 페이지 이벤트가 기록됩니다. 유효한 값의 예는 50% 입니다.</li>
+          <li>숫자-이 시간 (초) 동안 비디오가 재생 된 후 페이지 이벤트가 기록됩니다. 유효한 값의 예는 15입니다.</li>
+          <li>백분율-동영상이이 양으로 재생 된 후 페이지 이벤트가 기록됩니다. 유효한 값의 예는 50 %입니다.</li>
         </ol>
       </li>
       <li>항목 저장</li>
       <li>항목 게시</li>
-      <li>이제 재생 목록과 비디오에 새 페이지 이벤트를 추가 할 수 있습니다</li>
+      <li>이제 재생 목록과 동영상에 새 페이지 이벤트를 추가 할 수 있습니다.</li>
     </ol>
-    <p class="BCL-aside">참고: 재생 목록과 비디오에 새 재생 이벤트를 할당해야합니다. 그렇지 않으면 이벤트가 기록되지 않습니다.</p>
+    <p class="BCL-aside">참고: 새 재생 이벤트를 재생 목록과 비디오에 할당해야합니다. 그렇지 않으면 이벤트가 기록되지 않습니다.</p>
     <h3>보고서</h3>
-    <p>그만큼<span translate="No">Video Cloud</span><span translate="No">Sitecore</span>미디어 프레임 워크에는 비디오 재생과 관련된 여러 보고서가 포함되어 있습니다.</p>
+    <p><span translate="No">비디오 클라우드</span><span translate="No">Sitecore</span>미디어 프레임워크에는 비디오 재생과 관련된 여러 보고서가 포함되어 있습니다.</p>
     <h4>재생 시작</h4>
-    <p>이 보고서에는 비디오 시작 이벤트를 트리거한 비디오 목록이 표시됩니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-reports-started-playback.png"/></div>
+    <p>이 보고서는 동영상 시작 이벤트를 트리거 한 동영상 목록을 보여줍니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-reports-started-playback.png" /></div>
     <h4>완료된 재생</h4>
-    <p>이 보고서에는 비디오 완료 이벤트를 트리거한 비디오 목록이 표시됩니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-reports-completed-playback.png"/></div>
+    <p>이 보고서는 동영상 완료 이벤트를 트리거 한 동영상 목록을 보여줍니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-reports-completed-playback.png" /></div>
     <h4>불완전한 재생</h4>
-    <p>이 보고서는 비디오 시작 이벤트를 트리거했지만 비디오 완료 이벤트는 트리거하지 않은 비디오 목록을 표시합니다.</p>
-    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-reports-incomplete-playback.png"/></div>
+    <p>이 보고서는 비디오 시작 이벤트를 트리거했지만 비디오 완료 이벤트를 트리거하지 않은 비디오 목록을 표시합니다.</p>
+    <div><img class="bcls-image--no-border" alt="" src="https://img.brightcove.com/node16608-analytics-reports-incomplete-playback.png" /></div>
   </div>
-  <p><br/><b><a href="mailto:tbaldwin@brightcove.com?subject=Comment%20about%20https://support.brightcove.com/en/video-cloud/docs/getting-started-brightcove-connect-sitecore-experience-platform">의견이나 제안?</a></b></p>
+  <p><br />
+    <b><a href="mailto:tbaldwin@brightcove.com?subject=Comment%20about%20https://support.brightcove.com/en/video-cloud/docs/getting-started-brightcove-connect-sitecore-experience-platform">의견이나 제안?</a> </b></p>
 </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>

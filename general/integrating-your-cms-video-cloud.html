@@ -1,428 +1,9 @@
-﻿<!doctype html>
-<html lang="ko">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="이 주제에서는 브라이트코브 비디오 클라우드를 CMS와 통합하는 기본 작업에 대해 학습합니다. CMS 및 브라이트코브 API 작업 내에서 사용자가 수행하는 일반적인 기능을 나열하며, 이러한 기능을 제공하는 데 사용할 수 있습니다.">
-  
-  <title>CMS를 비디오 클라우드와 통합</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">  
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Video_Cloud_Logo.svg" alt="제품 로고" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">언어 선택</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-    
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="지원"/> 고객 지원 문의</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="시스템 상태"/> 시스템 상태</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">홈</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/general/">일반 정보</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">CMS를 비디오 클라우드와 통합</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-					<option value="">기타 브라이트코브 문서</option>
-					
-						
-							<option value="https://support.brightcove.com">설명서 홈</option>
-						
-					
-						
-							<option value="https://audience.support.brightcove.com">브라이트코브 대상</option>
-						
-					
-						
-							<option value="https://beacon.support.brightcove.com">브라이트코브 비콘</option>
-						
-					
-						
-							<option value="https://campaign.support.brightcove.com">브라이트코브 캠페인</option>
-						
-					
-						
-							<option value="https://engage.support.brightcove.com">브라이트코브 참여</option>
-						
-					
-						
-							<option value="https://live.support.brightcove.com">Brightcove Live</option>
-						
-					
-						
-							<option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
-						
-					
-						
-							<option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-						
-					
-						
-							<option value="https://social.support.brightcove.com">브라이트코브 소셜</option>
-						
-					
-						
-							<option value="https://studio.support.brightcove.com">비디오 클라우드 스튜디오</option>
-						
-					
-						
-							<option value="https://player.support.brightcove.com">브라이트코브 플레이어 개발</option>
-						
-					
-						
-							<option value="https://apis.support.brightcove.com">비디오 클라우드 플랫폼 API</option>
-						
-					
-						
-							<option value="https://sdks.support.brightcove.com">비디오 클라우드 디바이스 SDK</option>
-						
-					
-						
-							<option value="https://integrations.support.brightcove.com">통합 및 CMS 커넥터</option>
-						
-					
-						
-							<option value="https://general.support.brightcove.com">비디오 클라우드 일반 정보</option>
-						
-					
-						
-							<option value="https://zencoder.support.brightcove.com">Zencoder</option>
-						
-					
-				</select>
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">홈</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general/index.html">일반 정보 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general/cms-integration-training-videos.html">CMS 통합 교육 비디오</a></li>
-                  
-                
-                  
-                    <li><a href="/general/integrating-your-cms-video-cloud.html">CMS를 비디오 클라우드와 통합</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-players-cms.html">CMS에 브라이트코브 플레이어 삽입</a></li>
-                  
-                
-                  
-                    <li><a href="/general/embedding-brightcove-page-experiences-cms.html">CMS에 페이지 내 경험 포함</a></li>
-                  
-                
-                  
-                    <li><a href="/general/debugging-network-and-api-connection-issues-cms-and-dam-integrations.html">네트워크 및 API 연결 문제 디버깅</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/wordpress/index.html">워드 프레스<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/wordpress/getting-started-brightcove-video-connect-wordpress-cms.html">브라이트코브 비디오 연결 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-configuration.html">구성</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-frequently-asked-questions.html">자주 묻는 질문</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-installation.html">설치</a></li>
-                  
-                
-                  
-                    <li><a href="/wordpress/wordpress-brightcove-connector-using-connector.html">커넥터 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/drupal/index.html">드루팔<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/drupal/getting-started-brightcove-video-connect-drupal-cms.html">드루팔용 커넥터 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-configuration.html">드루팔 8 - 구성</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-content-management.html">드루팔 8 - 콘텐츠 관리</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-embedding-content.html">드루팔 8 - 내용 포함</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-8-brightcove-connector-installation.html">드루팔 8 - 커넥터 설치</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-configuration-and-usage.html">드루팔 7 - 구성 및 사용법</a></li>
-                  
-                
-                  
-                    <li><a href="/drupal/drupal-7-brightcove-connector-installation.html">드루팔 7 - 설치</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/adobe/index.html">어도비<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/adobe/getting-started-brightcove-video-connect-adobe-experience-manager.html">AEM용 커넥터 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-configuration.html">구성</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-installation.html">설치</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-overview.html">개요</a></li>
-                  
-                
-                  
-                    <li><a href="/adobe/adobe-aem-brightcove-connector-using-connector.html">커넥터 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/sitecore/index.html">사이트 코어<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sitecore/getting-started-brightcove-video-connect-sitecore-experience-platform.html">Sitecore용 커넥터 시작하기</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/sharepoint/index.html"><strong>셰어포인트</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/sharepoint/getting-started-brightcove-video-connect-sharepoint.html">셰어포인트 커넥터 시작하기</a></li>
-                  
-                
-                  
-                    <li><a href="/sharepoint/sharepoint-brightcove-connector-4041-using-connector.html">커넥터 사용</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecommerce/index.html">전자 상거래 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/salesforce/index.html">세일즈포스 커머스 클라우드<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-installation.html">세일즈포스 상거래 클라우드: </a>설치</li>
-                        
-                        <li><a href="/ecommerce/salesforce/brightcove-custom-cartridge-salesforce-commerce-cloud-user-guide.html">세일즈포스 상거래 클라우드: 사용자 안내서</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecommerce/adobe-magento-commerce/index.html">어도비 젠토 커머스<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/installation-guide.html">설치 안내서</a></li>
-                        
-                        <li><a href="/ecommerce/adobe-magento-commerce/user-guide.html">사용자 안내서</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/ecdn/index.html">eCDN <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/kollective/index.html">콜렉티브<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/kollective/kollective-deployment-guide.html">콜렉티브 eCDN 배포 가이드</a></li>
-                        
-                        <li><a href="/ecdn/kollective/kollective-user-guide.html">콜렉티브 eCDN 사용자 가이드</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/peer5/index.html">피어5 <strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/peer5/brightcove-with-peer5-integration.html">Peer5 통합을 통한 브라이트코브</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/ecdn/ramp/index.html">램프<strong>+</strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-omnicache-and-video-cloud.html">램프 옴니캐시 및 비디오 클라우드 시작하기</a></li>
-                        
-                        <li><a href="/ecdn/ramp/getting-started-ramp-multicast-and-video-cloud.html">램프 멀티캐스트+ 및 비디오 클라우드 시작하기</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/web-conferencing/index.html">웹 회의<strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/web-conferencing/host-zoom-conference-brightcove-live.html">브라이트코브 라이브 줌 컨퍼런스</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-cisco-webex-conference-brightcove-live.html">브라이트코브 라이브로 가는 시스코 웹 벡스 컨퍼런스</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-avaya-conference-brightcove-live.html">브라이트코브 라이브 어바이어 컨퍼런스</a></li>
-                  
-                
-                  
-                    <li><a href="/web-conferencing/host-inxpo-live.html">INXPO 브라이트코브 라이브 이벤트</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html">지원 <strong>+</strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">브라이트코브 시스템 상태 페이지 보기</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">영업팀에 문의</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">지원 사례 열기</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="네비게이션 메뉴"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">페이지 내용</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="새 탭에서 열기" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
+---
+title: 'CMS를 Video Cloud와 통합'
+description: '이 주제에서는 Brightcove Video Cloud를 CMS와 통합하는 것과 관련된 기본 작업을 학습합니다. 이 목록에는 사용자가 CMS 내에서 수행하는 일반적인 기능과 해당 기능을 제공하는 데 사용할 수 있는 브라이트코브 API 작업이 나열되어 있습니다.'
+parent: General Information
+---
 
 <!-- 
   This content appears on:
@@ -434,9 +15,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
   If you update in one place, you MUST update it in all!
  -->
 
- <h1>CMS를 비디오 클라우드와 통합</h1>
+ <h1>{{ page.title }}</h1>
  <article class="bcls-article">
-  <summary>이 주제에서는 브라이트코브 비디오 클라우드를 CMS와 통합하는 기본 작업에 대해 학습합니다. CMS 및 브라이트코브 API 작업 내에서 사용자가 수행하는 일반적인 기능을 나열하며, 이러한 기능을 제공하는 데 사용할 수 있습니다.</summary>
+  <summary>{{ page.description }}</summary>
   <section class="bcls-section">
     <h2 id="userFunctions">사용자 기능</h2>
     
@@ -445,66 +26,66 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <ul>
       <li>Video Cloud에 새 비디오 추가</li>
       <li>Video Cloud 비디오를 새 버전으로 교체</li>
-      <li>제목, 설명, 태그와 같은 비디오의 메타데이터 업데이트</li>
+      <li>제목, 설명, 태그와 같은 동영상의 메타 데이터 업데이트</li>
       <li>동영상 삭제</li>
       <li>재생 목록 만들기</li>
-      <li>재생 목록의 동영상 변경</li>
+      <li>재생 목록의 비디오 변경</li>
       <li>재생 목록 삭제</li>
       <li>비디오 플레이어 만들기</li>
-      <li>치수 또는 스타일 지정과 같은 비디오 플레이어 속성 수정</li>
-      <li>플러그인을 통해 비디오 플레이어에 특별한 기능 추가</li>
-      <li>단일 동영상 또는 재생목록 게시</li>
-      <li>동영상 로드, 조회수, 플레이율, 참여도 등에 대한 분석 데이터를 제공합니다.</li>
+      <li>크기 또는 스타일과 같은 비디오 플레이어 속성 수정</li>
+      <li>플러그인을 통해 비디오 플레이어에 특수 기능 추가</li>
+      <li>단일 비디오 또는 재생 목록 게시</li>
+      <li>비디오로드, 조회수, 재생률, 참여 등에 대한 분석 데이터를 제공합니다.</li>
     </ul>
     
-    <p>이 모든 기능을 최종 사용자에게 공개하고 싶지 않을 수도 있습니다. 예를 들어 동영상을 삭제하지 못하게 할 수도 있습니다. 사용자가 Video Cloud Studio로 직접 이동하지 않고 Video Cloud를 CMS와 통합 할 때의 장점 중 하나는 Brightcove API를 통해 사용자에게 노출 할 기능을 정확히 선택할 수 있다는 것입니다.</p>
+    <p>이 모든 기능을 최종 사용자에게 공개하고 싶지 않을 수 있습니다. 예를 들어, 최종 사용자가 비디오를 삭제하지 못하게하는 것을 원하지 않을 수 있습니다. 사용자가 Video Cloud Studio로 직접 이동하지 않고 Video Cloud를 CMS와 통합 할 때의 장점 중 하나는 Brightcove API를 통해 사용자에게 노출 할 기능을 정확히 선택할 수 있다는 것입니다.</p>
     </section>
     
     <section class="bcls-section">
-    <h2 id="authentication">인증</h2>
+    <h2 id="authentication">입증</h2>
     
-    <p>모든 브라이트코브 API 요청의 경우 인증은 OAuth2 액세스 토큰을 기반으로 합니다. 액세스 토큰을 얻는 두 단계 프로세스가 있습니다.</p>
+    <p>모든 Brightcove API 요청에 대해 인증은 OAuth2 액세스 토큰을 기반으로합니다. 액세스 토큰을 얻기위한 두 단계 프로세스가 있습니다.</p>
     
     <ol>
-      <li>필요한 API 작업에 대한 권한을 가진 클라이언트 자격 증명 만들기</li>
-      <li>클라이언트 자격 증명을 사용하여 임시 액세스 토큰을 생성하여 API 요청을 인증합니다.</li>
+      <li>필요한 API 작업에 대한 권한이있는 클라이언트 자격 증명 만들기</li>
+      <li>클라이언트 자격 증명을 사용하여 API 요청을 인증하는 임시 액세스 토큰을 만듭니다.</li>
     </ol>
     
-    <h3>클라이언트 자격 증명 만들기</h3>
+    <h3>클라이언트 자격 증명 생성</h3>
     
-    <p>클라이언트 자격 증명 생성은 다음을 통해 수행 할 수있는 일회성 작업입니다. <a href="https://apis.support.brightcove.com/general/managing-api-authentication-credentials.html">비디오 클라우드 스튜디오</a>아니면 그<a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html#getCredentials"> OAuth API</a> . 그러나 액세스 토큰을 요청하기 위해 저장해야하는<code translate="No">client_id</code>및<code translate="No">client_secret</code>가 반환됩니다.</p>
+    <p>클라이언트 자격 증명 생성은<a href="https://apis.support.brightcove.com/general/managing-api-authentication-credentials.html"> Video Cloud Studio</a>또는<a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html#getCredentials"> OAuth API를 통해 수행할 수 있는 일회성</a>작업입니다. 그러나 이 작업을 수행하면<code translate="No">client_id</code>및<code translate="No">client_secret</code>가 반환되므로 액세스 토큰을 요청하려면 저장해야 합니다.</p>
     
-    <aside class="bcls-aside bcls-aside--warning"><code translate="No">client_secret</code>는 클라이언트 자격 증명이 생성될 때만 표시되며 다시 검색할 수 없습니다. 클라이언트 암호를 분실한 경우 새 클라이언트 자격 증명을 만들어야 합니다.</aside>
+    <aside class="bcls-aside bcls-aside--warning"><code translate="No">client_secret</code>는 클라이언트 자격 증명이 생성된 경우에만 표시되며, 다시는 검색할 수 없습니다. 클라이언트 암호를 분실한 경우 새 클라이언트 자격 증명을 만들어야 합니다.</aside>
     
     <h3>액세스 토큰 만들기</h3>
     
-    <p>임시 액세스 토큰은<a href="https://apis.support.brightcove.com/oauth/guides/getting-access-tokens.html"> OAuth API</a> . 그만큼<code translate="No">client_id</code>과<code translate="No">client_secret</code> BASE64로 인코딩되고<code translate="No">Basic</code>인증 문자열.</p>
+    <p>임시 액세스 토큰은<a href="https://apis.support.brightcove.com/oauth/guides/getting-access-tokens.html"> OAuth API를 사용하여 생성됩니다</a> . <code translate="No">client_id</code>및 는 Base64로 인코딩되고 a로<code translate="No">client_secret</code>전달되어야 합니다. <code translate="No">Basic</code>권한 부여 문자열입니다.</p>
     
-    <p><code translate="No">access_token</code>반환되는 것은 API 호출과 함께 권한 부여 헤더에 전달됩니다.</p>
+    <p><code translate="No">access_token</code>반환된 값은 API 호출과 함께 권한 부여 헤더에 전달되었습니다.</p>
     
     <pre class="line-numbers">
     <code class="language-bash" translate="No">&gt;Authorization: Bearer <strong><em>your_access_token</em></strong>
     </code>
     </pre>
     
-    <p>액세스 토큰은 5 분 동안 유효합니다. 수백 개의 연속 API 호출을 수행하는 일종의 일괄 처리 작업을 수행하지 않는 한 시간 제한을 추적하지 않고 각 API 호출에 대해 새 API 호출을 요청하는 것이 좋습니다.</p>
+    <p>액세스 토큰은 5 분 동안 유효합니다. 수백 번의 연속적인 API 호출을 수행하는 일종의 일괄 작업을 수행하지 않는 한, 시간 제한을 추적하는 대신 각 API 호출에 대해 새 작업을 요청하는 것이 좋습니다.</p>
     </section>
     
     <section class="bcls-section">
     <h2 id="addingVideos">비디오 추가</h2>
     
-    <p>사용자가 CMS에서 Video Cloud에 비디오를 추가 할 수 있도록하려면 다음을 사용하여 수행 할 수 있습니다. <a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html"><span translate="No">Dynamic Ingest API</span></a> . 사용자가 S3 버킷 또는 공용 서버일 수 있는 리포지토리에 비디오를 업로드하도록 하는 것이 좋습니다. Dynamic Ingest 시스템은 아래에 설명 된 2 단계 프로세스를 통해 비디오를 가져 와서 비디오 클라우드 시스템에 추가 할 수 있습니다.</p>
+    <p>사용자가 CMS에서 Video Cloud에 비디오를 추가할 수 있도록 하려면<a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html"><span translate="No">동적 인제스트 API를 사용하여 이 작업을 수행할 수</span></a>있습니다. 사용자가 S3 버킷 또는 공용 서버 일 수있는 리포지토리에 비디오를 업로드하도록하는 것이 좋습니다. 동적 인제스트 시스템은 아래에 설명된 2단계 프로세스를 통해 비디오를 가져와서 비디오 클라우드 시스템에 추가할 수 있습니다.</p>
     
     <h3>Video Cloud에 비디오 개체 추가</h3>
     
-    <p>첫 번째 단계는 비디오 클라우드 시스템에서 비디오 개체를 만드는 것입니다. <code translate="No">POST</code> CMS API에 대한 요청 :</p>
+    <p>첫 번째 단계는 CMS API에<code translate="No">POST</code>요청하여 비디오 클라우드 시스템에서 비디오 객체를 만드는 것입니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/:account_id/videos
     </code>
     </pre>
     
-    <p>요청 본문에는 JSON 개체의 기본 동영상 속성이 포함됩니다. <code translate="No">name</code>하지만, 다음과 같은 추가 메타 데이터를 포함 할 수도 있습니다. <code translate="No">description</code>과<code translate="No">tags</code> :</p>
+    <p>요청 본문에는 JSON 객체의 기본 비디오 속성 (최소 비디오<code translate="No">name</code>속성) 이 포함되지만 다음과 같은 추가 메타데이터를 포함할 수도 있습니다. <code translate="No">description</code>및<code translate="No">tags</code> :</p>
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -516,18 +97,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <aside class="bcls-aside bcls-aside--information">A는 모든 비디오에 추가 할<code translate="No">reference_id</code>수 있습니다. 참조 ID는 계정 내에서 고유해야 합니다. 동영상에 CMS 시스템에 ID가있는 경우 해당 ID를 Video Cloud 시스템에서 참조 ID로 사용하는 것이 좋습니다.</aside>
+    <aside class="bcls-aside bcls-aside--information">A는 모든 비디오에 추가할<code translate="No">reference_id</code>수 있습니다. 참조 ID는 계정 내에서 고유해야합니다. 동영상에 CMS 시스템에 ID가 있는 경우 Video Cloud 시스템에서 해당 ID를 참조 ID로 사용하는 것이 좋습니다.</aside>
     
-    <h3>비디오 인제스팅</h3>
+    <h3>비디오 수집</h3>
     
-    <p>비디오 개체를 만들 때<span translate="No">CMS API</span>비디오 속성이 포함 된 JSON 개체를 반환합니다. 비디오를 추출합니다<code translate="No">id</code> JSON에서 가져온 다음이를 사용하여<span translate="No">Dynamic Ingest API</span>동영상 수집 및 트랜스 코딩을 요청하려면 :</p>
+    <p>비디오 객체를 만들면<span translate="No"> CMS</span> API는 비디오 속성을 포함하는 JSON 객체를 반환합니다. <code translate="No">id</code> JSON에서 비디오를 추출하고 이를 사용하여<span translate="No">동적 인제스트 API를</span>호출하여 비디오의 수집 및 트랜스코딩을 요청합니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://ingest.api.brightcove.com/v1/accounts/<strong><em>ACCOUNT_ID</em></strong>/videos/<strong><em>VIDEO_ID</em></strong>/ingest-requests
     </code>
     </pre>
     
-    <p>다시 한번 요청 본문에 비디오 파일의 위치를 지정하는 JSON을 보냅니다.</p>
+    <p>다시 동영상 파일의 위치를 지정하는 요청 본문에 JSON을 보냅니다.</p>
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -539,17 +120,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     }
     </code>
     </pre>
+    <aside class="bcls-aside bcls-aside--information language-editable">위의 코드는 사용자에게 수집 프로필 선택기를 제공한다고 가정합니다. 그렇지 않은 경우 요청 본문에서<code translate="No">profile</code>필드를 생략해야 합니다. 이 경우 계정 기본 프로필이 사용됩니다. 여러 인제스트 프로파일이 필요하지 않는 한 브라이트코브가 권장하는 것이 일반적입니다.</aside>
+
+    <p><code translate="No">profile</code>다음은 트랜스코딩 프로세스에서 만들어야 하는 변환을 지정하는 인제스트 프로필입니다. 대부분의 경우 다음 표준 프로필 중 하나가 적합해야합니다.</p>
     
-    <p><code translate="No">profile</code>다음은 트랜스코딩 프로세스에서 만들어야 할 변환을 지정하는 인제스트 프로필입니다. 대부분의 경우 다음 표준 프로파일 중 하나가 적절해야합니다.</p>
-    
-    <h4>동적 전달 프로필</h4>
+    <h4>Dynamic Delivery 프로필</h4>
     
     <ul>
       <li><code translate="No">multi-platform-extended-static</code></li>
       <li><code translate="No">multi-platform-standard-static</code></li>
     </ul>
     
-    <h4>레거시 인제스트 프로파일</h4>
+    <h4>레거시 수집 프로필</h4>
     
     <ul>
       <li><code translate="No">videocloud-default-v1 (the default)</code></li>
@@ -561,9 +143,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <li><code translate="No">high-resolution</code></li>
     </ul>
     
-    <p>그러나 필요한 경우 추가 사용자 지정 수집 프로필을 만들 수 있습니다. <a href="https://apis.support.brightcove.com/ingest-profiles/getting-started/overview-ingest-profiles-api-dynamic-delivery-context-aware-encoding.html"> Ingest Profiles API</a>또는 사용<a href="https://studio.support.brightcove.com/admin/managing-ingest-profiles.html">비디오 클라우드 스튜디오</a> .</p>
+    <p>그러나 필요한 경우 다음을 사용하여 추가 사용자 지정 수집 프로필을 만들 수 있습니다. <a href="https://apis.support.brightcove.com/ingest-profiles/getting-started/overview-ingest-profiles-api-dynamic-delivery-context-aware-encoding.html">프로파일 수집 API</a>또는 사용<a href="https://studio.support.brightcove.com/admin/managing-ingest-profiles.html">비디오 클라우드 스튜디오</a> .</p>
     
-    <aside class="bcls-aside bcls-aside--warning">다음을 사용하여 프로필을 검색하는 경우<a href="https://apis.support.brightcove.com/ingest-profiles/"> Ingest Profiles API</a>결과<strong>레거시 수집 계정</strong> Dynamic Delivery 프로필이 포함되지만 이러한 프로필을 사용하면 오류가 발생합니다. 클라이언트 측에서 이러한 프로파일을 필터링해야 합니다. <code translate="No">dynamic_origin</code>속성이 있는 경우 동적 전송 프로필을 인식할 수 있습니다.
+    <aside class="bcls-aside bcls-aside--warning"><a href="https://apis.support.brightcove.com/ingest-profiles/">수집 프로필 API를</a>사용하여 프로파일을 검색하는 경우<strong>레거시 수집 계정에 대한 결과에 동적 전달 프로필이</strong>포함되지만 이러한 프로파일을 사용하면오류. 클라이언트 측에서 이러한 프로필을 필터링해야합니다. <code translate="No">dynamic_origin</code>속성이 존재하면 동적 배달 프로필을 인식할 수 있습니다.
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -615,9 +197,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       }</code></pre>
     </aside>
     
-    <h4>포스터 및 축소판 이미지 추가</h4>
+    <h4>포스터 및 썸네일 이미지 추가</h4>
     
-    <p>그만큼<code translate="No">capture-images</code>위 코드의 옵션은 트랜스 코딩 프로세스 중 중간 지점에서 비디오의 포스터 및 썸네일 이미지를 캡처하도록 Video Cloud에 지시합니다. 또는 비디오를<code translate="No">capture-images</code>인제스트하는<code translate="No">false</code>동시에 또는 나중에 이미지를 대신 설정하고 인제스트할 수 있습니다.</p>
+    <p>위 코드의<code translate="No">capture-images</code>옵션은 트랜스코딩 프로세스 중 중간 지점에서 비디오의 포스터 및 썸네일 이미지를 캡처하도록 Video Cloud에 지시합니다. 또는 비디오를<code translate="No">capture-images</code>인제스트하는<code translate="No">false</code>동시에 또는 나중에 이미지를 대신 설정하거나 인제스트할 수 있습니다.</p>
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -640,11 +222,11 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>보다<a href="https://apis.support.brightcove.com/dynamic-ingest/ingest-guides/images-and-dynamic-ingest-api.html">이미지와<span translate="No">Dynamic Ingest API</span></a>상세 사항은.</p>
+    <p>자세한 내용은<a href="https://apis.support.brightcove.com/dynamic-ingest/ingest-guides/images-and-dynamic-ingest-api.html">이미지 및<span translate="No">동적 수집 API를</span></a>참조하십시오.</p>
     
-    <h4>캡션 또는 장에 텍스트 트랙 추가</h4>
+    <h4>캡션 또는 챕터 용 텍스트 트랙 추가</h4>
     
-    <p>를 사용하여 수집<span translate="No">Dynamic Ingest API</span>시점이나 나중에<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Video_Text_Tracks_Format">WebVTT</a>파일의 텍스트 트랙을 비디오에 추가할 수도 있습니다. 텍스트 트랙은 비디오에<a href="https://player.support.brightcove.com/general/adding-captions-videos-programmatically.html">캡션이나</a><a href="https://studio.support.brightcove.com/media/adding-chapters-video.html">장을</a>추가하는 데 사용됩니다.</p>
+    <p>또한<span translate="No">동적 인제스트 API를</span>사용하여 수집 시점이나 그 이후에<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Video_Text_Tracks_Format"> WebVTT</a>파일의 텍스트 트랙을 비디오에 추가할 수 있습니다. 텍스트 트랙은 비디오에<a href="https://player.support.brightcove.com/general/adding-captions-videos-programmatically.html"></a>캡션이나<a href="https://studio.support.brightcove.com/media/adding-chapters-video.html">장을</a>추가하는 데 사용됩니다.</p>
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -676,48 +258,48 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>보다<a href="https://apis.support.brightcove.com/dynamic-ingest/ingest-guides/ingesting-webvtt-files-text-trackscaptions.html"> WebVTT 파일 수집</a>상세 사항은.</p>
+    <p>자세한 내용은 WebVTT 파일<a href="https://apis.support.brightcove.com/dynamic-ingest/ingest-guides/ingesting-webvtt-files-text-trackscaptions.html"></a>수집을 참조하십시오.</p>
     </section>
     
     <section class="bcls-section" id="manangingVideos">
     <h2>비디오 관리</h2>
     
-    <p>를<span translate="No">CMS API</span>사용하면 계정에 대한 비디오 데이터를 다시 가져올 수 있습니다. 위에 표시된 것처럼 비디오 수집 프로세스의 일부로 비디오 객체를 만드는 데에도 사용됩니다. 가장 기본적인 요청은 다음과 같습니다.</p>
+    <p><span translate="No">CMS API를</span>사용하면 계정에 대한 비디오 데이터를 다시 가져올 수 있습니다. (위에 표시된 것처럼 비디오 수집 프로세스의 일부로 비디오 개체를 만드는데도 사용됩니다.) 가장 기본적인 요청은 다음과 같습니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/account_id/videos
     </code>
     </pre>
     
-    <p>기본적으로이 요청은 이름, 설명, 태그, 사용자 정의 필드, 생성 및 마지막 수정 날짜, 포스터 및 미리보기 이미지의 URL 등을 포함하여 풍부한 메타 데이터를 포함하는 20 개의 동영상 개체의 JSON 배열을 반환합니다.</p>
+    <p>기본적으로이 요청은 이름, 설명, 태그, 사용자 지정 필드, 생성 및 마지막 수정 날짜, 포스터 및 미리보기 이미지의 URL 등 다양한 메타 데이터를 포함하는 20 개의 동영상 개체의 JSON 배열을 반환합니다.</p>
     
-    <p>다음 매개 변수 중 하나 이상을 요청에 추가하여 요청 결과를 구체화할 수 있습니다.</p>
+    <p>다음 매개 변수 중 하나 이상을 요청에 추가하여 요청 결과를 구체화 할 수 있습니다.</p>
     
     <dl>
       <dt><code translate="No">limit</code></dt>
-      <dd>이 반환 할 비디오 객체의 수를 결정, 최대 임의의 숫자로 설정할 수 있습니다 100 - 기본값은 20</dd>
+      <dd>이것은 반환 할 비디오 개체의 수를 결정하며 100까지 임의의 수로 설정할 수 있습니다. 기본값은 20입니다.</dd>
       <dt><code translate="No">offset</code></dt>
-      <dd>이것은 건너 뛸 항목 수를 결정하므로 비디오 카탈로그를 통해<code translate="No">limit</code>페이지하는 데 함께 사용됩니다. 기본값은 0입니다.</dd>
+      <dd>건너뛸 항목 수를 결정하므로 비디오 카탈로그를 통해 페이지 페이지와<code translate="No">limit</code>함께 사용됩니다. 기본값은 0입니다.</dd>
       <dt><code translate="No">sort</code></dt>
-      <dd>이것은 결과를 정렬 할 비디오 메타 데이터 필드를 결정합니다. 기본적으로 결과는 정렬 기준<code translate="No">updated_at</code> (내림차순, 가장 최근에 업데이트 된 비디오를 먼저 표시하기 위해)</dd>
+      <dd>결과를 정렬 할 비디오 메타 데이터 필드를 결정합니다. 기본적으로 결과는 다음을 기준으로 정렬됩니다. <code translate="No">updated_at</code> (내림차순, 가장 최근에 업데이트 된 동영상을 먼저 표시)</dd>
     </dl>
     
-    <p>보다<a href="https://apis.support.brightcove.com/cms/getting-started/overview-cms-api.html#parameters"><span translate="No">CMS API</span>개요-매개 변수</a>이러한 매개 변수에 대한 자세한 정보는</p>
+    <p>보다<a href="https://apis.support.brightcove.com/cms/getting-started/overview-cms-api.html#parameters"><span translate="No"> CMS API</span>개요 - 매개변수</a>이러한 매개변수에 대한 자세한 내용은</p>
     
     <h3>비디오 검색</h3>
     
-    <p><code translate="No">q</code>매개 변수를 사용하여 다양한 기준으로 비디오를 검색 할 수도 있습니다. 이름, 설명, 태그와 같은 특정 필드뿐만 아니라 날짜 및 비디오의 상태를 기준으로 검색할 수 있습니다.</p>
+    <p><code translate="No">q</code>매개 변수를 사용하여 다양한 기준으로 비디오를 검색할 수도 있습니다. 이름, 설명, 태그, 날짜 및 비디오 상태와 같은 특정 필드로 검색 할 수 있습니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/account_id/videos?q=tags:sea,mammal
     </code>
     </pre>
     
-    <p>검색에 대한 자세한 내용 및 모든 옵션은<a href="https://apis.support.brightcove.com/cms/searching/cms-and-playback-apis-video-search-v2.html">비디오 검색</a> .</p>
+    <p>자세한 내용 및 검색 옵션에 대한 자세한 내용은 비디오<a href="https://apis.support.brightcove.com/cms/searching/cms-and-playback-apis-video-search-v2.html">검색을 참조하십시오</a> .</p>
     
-    <h3>특정 비디오 가져오기 및 업데이트</h3>
+    <h3>특정 비디오 가져 오기 및 업데이트</h3>
     
-    <p>ID 또는 참조 ID로 특정 비디오를 검색하려면 다음과 같이 하십시오.</p>
+    <p>해당 ID 또는 참조 ID로 특정 비디오를 검색하려면</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/account_id/videos/<strong><em>id</em></strong>
@@ -726,21 +308,21 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>ㅏ<code translate="No">GET</code>요청은 비디오 객체를 반환합니다. 업데이트하려면<code translate="No">JSON</code>사용하여 반환<code translate="No">PATCH</code>동일한 URL로 요청하십시오.</p>
+    <p><code translate="No">GET</code>요청은 비디오 객체를 반환합니다. 업데이트하려면 를<code translate="No">JSON</code>수정하고<code translate="No">PATCH</code>요청을 사용하여 동일한 URL에 반환합니다.</p>
     
-    <aside class="bcls-aside bcls-aside--tip">사용자에게 비디오를 표시할 때 축소판 이미지를 디스플레이에 포함시켜 게시하거나 업데이트할 잘못된 비디오를 선택할 가능성을 줄이는 것이 좋습니다.</aside>
+    <aside class="bcls-aside bcls-aside--tip">사용자에게 비디오를 표시할 때 게시하거나 업데이트할 잘못된 비디오를 선택할 가능성을 줄이기 위해 디스플레이에 축소판 이미지를 포함하는 것이 좋습니다.</aside>
     </section>
     
     <section class="bcls-section" id="playlists">
-    <h2>재생목록</h2>
+    <h2>재생 목록</h2>
     
-    <p>재생 목록 정보는 비디오 정보와 거의 동일한 방식으로 를 사용하여 관리됩니다. <span translate="No">CMS API</span> Video Cloud는 두 가지 범주에서 8 가지 유형의 재생 목록을 지원합니다.</p>
+    <p>재생 목록 정보는 비디오 정보와 거의 동일한 방식으로<span translate="No"> CMS API를</span>사용하여 관리됩니다. Video Cloud는 두 가지 범주에서 8가지 유형의 재생 목록을 지원합니다.</p>
     
     <dl>
-      <dt>수동 (또는<code translate="No">EXPLICIT</code> ) 재생 목록</dt>
-      <dd>지정된 동영상 세트 포함 - 최대 100개의 동영상이 포함될 수 있습니다</dd>
+      <dt>수동 (또는<code translate="No">EXPLICIT</code> ) 재생목록</dt>
+      <dd>지정된 동영상 세트 포함-최대 100 개의 동영상이 포함될 수 있습니다.</dd>
       <dt>스마트 재생 목록</dt>
-      <dd>검색 기준에 따라 런타임에 동적으로 빌드됩니다. 목록에서 비디오가 정렬되는 방식에 해당하는 스마트 재생 목록이 7가지 종류가 있습니다.
+      <dd>검색 기준에 따라 런타임에 동적으로 빌드됨 - 목록 내에서 비디오가 정렬되는 방식에 해당하는 7가지 종류의 스마트 재생 목록이 있습니다.
       <ul>
         <li><code translate="No">ACTIVATEDOLDESTTONEWEST</code></li>
         <li><code translate="No">ACTIVATEDNEWESTTOOLDEST</code></li>
@@ -751,34 +333,34 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <li><code translate="No">STARTDATENEWESTTO_OLDEST</code></li>
       </ul>
     
-      <aside class="bcls-aside bcls-aside--warning">재생 목록을 만든 후에는 수동 재생 목록을 스마트 재생 목록으로 변경할 수<strong>없습니다</strong> (또는 그 반대).</aside>
+      <aside class="bcls-aside bcls-aside--warning">할 수 있습니다. <strong> ~ 아니다</strong>재생 목록이 생성된 후 수동 재생 목록을 스마트 재생 목록으로(또는 그 반대로) 변경합니다.</aside>
     
-      <p>동영상 수에 대한 제한은 최대 100개까지 설정할 수 있습니다.</p>
+      <p>동영상 개수 제한은 최대 100 개까지 설정할 수 있습니다.</p>
       </dd>
     </dl>
     
-    <p>동영상과 마찬가지로 계정에 재생 목록이 많은 경우<code translate="No">limit</code>및<code translate="No">offset</code>를 사용하여 결과를 페이징 할 수 있습니다.</p>
+    <p>동영상과 마찬가지로 계정에 재생 목록이 많은 경우<code translate="No">limit</code>및<code translate="No">offset</code>를 사용하여 모든 재생 목록을 검색할 수 있습니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/account_id/<strong><em>playlists</em></strong>
     </code>
     </pre>
     
-    <p>재생 목록 객체의 반환된 배열에는 위에서 설명한 유형 중 하나에<code translate="No">type</code>해당하는 를 포함하여 재생 목록의 메타데이터가 포함됩니다. 유형이 인<code translate="No">EXPLICIT</code>경우 포함 된 비디오의 ID를 포함하는<code translate="No">video_ids</code>배열도 있습니다. 유형이 스마트 재생 목록 유형 중 하나이면 다음과 같은 비디오를 검색하는 검색 문자열을 포함하는<code translate="No">search</code>속성이 있습니다.</p>
+    <p>반환된 재생 목록 객체 배열에는 위에서 설명한 유형 중 하나에<code translate="No">type</code>해당하는 를 포함하여 재생 목록의 메타데이터가 포함됩니다. 유형이 인<code translate="No">EXPLICIT</code>경우 포함된 비디오의 ID를 포함하는<code translate="No">video_ids</code>배열도 있습니다. 유형이 스마트 재생 목록 유형 중 하나인 경우 다음과 같이 비디오를 검색하는 검색 문자열이 포함된<code translate="No">search</code>속성이 있습니다.</p>
     
     <pre>
     <code class="language-http" translate="No">q=tags:fish,birds
     </code>
     </pre>
     
-    <p>또한 다음과 같은 방법으로 단일 재생 목록을 검색 할 수 있습니다<code translate="No">id</code> .</p>
+    <p>다음과 같이 단일 재생 목록을 검색할 수도 있습니다. <code translate="No">id</code></p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/account_id/playlists/<strong><em>playlist_id</em></strong>
     </code>
     </pre>
     
-    <p>재생 목록의 전체 비디오 객체를 검색해야하는 경우 (페이지의 비디오에 대한 정보를 표시하기<code translate="No">/videos</code>위해) 해당 URL에 추가하기 만하면됩니다.</p>
+    <p>페이지의 동영상에 대한 정보를 표시하기 위해 재생 목록의 전체 비디오 개체를 검색해야 하는 경우 해당 URL에<code translate="No">/videos</code>추가하기만 하면 됩니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://cms.api.brightcove.com/v1/accounts/account_id/playlists/<strong><em>playlist_id/videos</em></strong>
@@ -789,20 +371,20 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
     
     <section class="bcls-section" id="creatingPlayers">
-    <h2>플레이어 작성</h2>
+    <h2>플레이어 생성</h2>
     
-    <p>Brightcove 플레이어는<a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">플레이어 관리 API</a> . API를 사용하면 플레이어를 만들고, 속성을 업데이트하고, 페이지에 포함할 URL, <code translate="No">iframe</code>태그 또는 HTML 블록의 형태로 임베드 코드를 가져올 수 있습니다.</p>
+    <p>브라이트코브 플레이어는<a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">플레이어 관리 API를 통해 생성할 수</a>있습니다. API를 사용하면 플레이어를 생성하고, 프로퍼티를 업데이트하고, 페이지에 포함할 URL, <code translate="No">iframe</code>태그 또는 HTML 블록의 형태로 임베드 코드를 가져올 수 있습니다.</p>
     
-    <p class="BCL-aside">계정 당 최대 200명의 플레이어까지 할 수 있지만 사용자가 절대적으로 필요한만큼의 플레이어를 보유하는 것은 일반적으로 덜 혼란 스럽습니다. 당신은 하나의 비디오 또는 재생 목록을 재생하기위한 별도의 플레이어가 있어야합니다, 하지만 그렇지 않으면 그들은 다르게 스타일을 될 것입니다 또는 플러그인을 통해 다른 기능을 추가 할 때 다른 플레이어가 필요합니다.</p>
+    <p class="BCL-aside">계정 당 최대 200 명의 플레이어를 사용할 수 있지만 일반적으로 사용자가 절대적으로 필요한만큼의 플레이어를 보유하는 것이 덜 혼란 스럽습니다. 단일 비디오 또는 재생 목록을 재생하려면 별도의 플레이어가 있어야하지만 그렇지 않으면 스타일이 다르게 지정되거나 플러그인을 통해 다른 기능이 추가 될 때만 다른 플레이어가 필요합니다.</p>
     
-    <p>플레이어를 만들려면 간단히<code translate="No">POST</code>플레이어 관리 API에 대한 요청 :</p>
+    <p>플레이어를 생성하려면 플레이어 관리 API에<code translate="No">POST</code>요청하기만 하면 됩니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://players.api.brightcove.com/v2/accounts/account_id/players
     </code>
     </pre>
     
-    <p>요청 본문에<a href="https://apis.support.brightcove.com/player-management/guides/player-configuration-guide.html">플레이어 구성</a> -필요한 유일한 것은<code translate="No">name</code> :</p>
+    <p>요청 본문에<a href="https://apis.support.brightcove.com/player-management/guides/player-configuration-guide.html">플레이어 구성을</a>포함하십시오. 필요한 것은 다음과<code translate="No">name</code>같습니다.</p>
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -811,7 +393,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>응답은 플레이어 ID와 여러 형식의 embed 코드를 제공합니다.</p>
+    <p>응답은 플레이어 ID와 여러 형식의 소스 코드를 제공합니다.</p>
     
     <pre class="line-numbers">
     <code class="language-json" translate="No">{
@@ -825,16 +407,16 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>전체 플레이어 구성을 얻으려면<code translate="No">/players</code>엔드포인트에 요청을 하지만 위의 응답에서 반환된 플레이어 ID를 추가합니다.</p>
+    <p>전체 플레이어 구성을 가져오려면<code translate="No">/players</code>엔드포인트에 요청하지만 위의 응답에서 반환되는 플레이어 ID를 추가합니다.</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://players.api.brightcove.com/v2/accounts/account_id/players/de055fa4-4f09-45af-8531-419c6794ad04
     </code>
     </pre>
     
-    <p>당신은 만들 수 있습니다<code translate="No">PATCH</code>플레이어 구성을 업데이트하려면 동일한 엔드 포인트에 요청하십시오.</p>
+    <p>동일한 엔드포인트에<code translate="No">PATCH</code>요청하여 플레이어 구성을 업데이트할 수 있습니다.</p>
     
-    <p>위의 응답에서 알 수 있습니다, <code translate="No">preview_embed_code</code>및<code translate="No">preview_url</code> . 신규 플레이어 또는 플레이어 업데이트를 테스트할 수 있도록 새로 생성되거나 업데이트된 플레이어는 기존 플레이어에게 변경 사항을 푸시하기 전에 미리 보기 모드로 설정됩니다. 변경 사항을 프로덕션으로 푸시하려면 다음 요청으로 플레이어를<strong>게시해야</strong>합니다.</p>
+    <p>위의 응답에서<code translate="No">preview_embed_code</code>및 를 확인할 수<code translate="No">preview_url</code>있습니다. 새 플레이어 또는 플레이어 업데이트를 테스트 할 수 있도록 새로 생성되거나 업데이트 된 플레이어가 미리보기 모드로 설정되어 기존 플레이어에 변경 사항을 적용하기 전에 확인할 수 있습니다. 변경 사항을 프로덕션으로 푸시하려면 다음을 수행해야 합니다. <strong>출판하다</strong>이 요청이 있는 플레이어:</p>
     
     <pre class="line-numbers">
     <code class="language-http" translate="No">https://players.api.brightcove.com/v2/accounts/account_id/players/de055fa4-4f09-45af-8531-419c6794ad04/<strong><em>publish</em></strong>
@@ -843,19 +425,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
     
     <section class="bcls-section" id="customizingPlayers">
-    <h2>플레이어 사용자 정의</h2>
+    <h2>플레이어 커스터마이징</h2>
     
-    <p><a href="https://player.support.brightcove.com/getting-started/overview-brightcove-player.html">브라이트코브 플레이어는</a>다음과 같은 표준 웹 기술로 제작되었습니다. HTML, CSS 및 JavaScript. 동일한 기술을 사용하여 플레이어를 사용자 지정할 수 있습니다. 이는 플레이어가 게시 된 페이지에서 수행 할 수 있지만 가장 좋은 방법은 플레이어를 통해 플레이어 자체에 사용자 지정을 추가하는 것입니다. <a href="https://apis.support.brightcove.com/player-management/guides/player-configuration-guide.html">구성</a> , a를 통해 플레이어 업데이트<code translate="No">PATCH</code>이전 섹션에서 설명한대로 플레이어 관리 API에 요청합니다.</p>
+    <p><a href="https://player.support.brightcove.com/getting-started/overview-brightcove-player.html">브라이트코브 플레이어는</a>다음과 같은 표준 웹 기술로 구축되었습니다. HTML, CSS 및 JavaScript. 동일한 기술을 사용하여 플레이어를 사용자 지정할 수 있습니다. 이 작업은 플레이어가 게시된 페이지에서 수행할 수 있지만, 플레이어<a href="https://apis.support.brightcove.com/player-management/guides/player-configuration-guide.html">구성을</a>통해 플레이어 자체에 사용자 지정을 추가하고 다음을 통해 플레이어를 업데이트하는 것이 좋습니다. <code translate="No">PATCH</code>이전 섹션에서 설명한 대로 플레이어 관리 API에 요청합니다.</p>
     
-    <p>JavaScript를 통해 플레이어에 추가 기능을 추가 할 수도 있습니다. <a href="https://player.support.brightcove.com/plugins/brightcove-player-plugins.html">플러그인</a> , 그리고 광범위한<a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">플레이어 API</a>코드를 플레이어와 통합하는 데 도움이됩니다. 브라이트코브는 광고 활성화, 엔드스크린 사용자 지정, 오버레이 추가와 같은 다양한 기성 플러그인을 제공합니다.</p>
+    <p>JavaScript를 통해 플레이어에 추가 기능을 추가할 수도 있습니다. <a href="https://player.support.brightcove.com/plugins/brightcove-player-plugins.html">플러그인</a> , 그리고 광범위한<a href="https://docs.brightcove.com/brightcove-player/current-release/index.html">플레이어 API</a>코드를 플레이어와 통합하는 데 도움이 됩니다. Brightcove는 광고 활성화, 최종 화면 사용자 지정 및 오버레이 추가와 같은 작업을 위해 미리 만들어진 다양한 플러그인을 제공합니다.</p>
     </section>
     
     <section class="bcls-section" id="publishingVideos">
-    <h2>비디오 게시</h2>
+    <h2>동영상 게시</h2>
     
-    <p>에서<a href="#creatingPlayers">플레이어 만들기 섹션</a>위에서 플레이어 관리 API를 사용하여 플레이어 구성 개체를 가져올 때 반환 된 데이터에는 플레이어를 HTML 페이지에 포함하기위한 iframe 태그와 플레이어를 직접 포함하려는 경우 전체 HTML에 대한 URL이 포함됩니다. 페이지.</p>
+    <p>에서<a href="#creatingPlayers">플레이어 만들기 섹션</a>위에서 우리는 플레이어 관리 API를 사용하여 플레이어 구성 개체를 가져올 때 반환된 데이터에 플레이어를 HTML 페이지에 포함하기 위한 iframe 태그와 플레이어를 직접 포함하려는 경우 전체 HTML에 대한 URL을 포함하는 것을 보았습니다. 페이지.</p>
     
-    <aside class="bcls-aside bcls-aside--tip">플레이어의 CSS와 자바 스크립트, 페이지에서 사용되는 다른 스타일 시트 및 스크립트 간의 충돌을 방지 할 수 있으므로 가능하면 iframe 삽입을 사용하는 것이 좋습니다. 차이점에 대한 자세한 내용과 다양한 상황에서 사용할 임베드에 대한 구체적인 권장 사항은<a href="https://player.support.brightcove.com/publish/choosing-correct-embed-code.html">이 문서를</a>참조하십시오.</aside>
+    <aside class="bcls-aside bcls-aside--tip">가능한 한 iframe 삽입을 사용하는 것이 좋습니다. 이렇게 하면 플레이어의 CSS와 JavaScript, 페이지에서 사용되는 다른 스타일시트 및 스크립트 간의 충돌을 방지할 수 있습니다. 보다<a href="https://player.support.brightcove.com/publish/choosing-correct-embed-code.html">이 문서</a>차이점에 대한 자세한 내용과 다양한 상황에서 사용할 임베딩에 대한 보다 구체적인 권장 사항은</aside>
     
     <p>어떤 임베딩을 선택하든 플레이어에 콘텐츠를 추가하려면 임베드 코드에 Video Cloud 비디오 ID 또는 재생 목록 ID를 추가해야합니다. iframe 임베드 코드는 다음과 같습니다.</p>
     
@@ -866,7 +448,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>플레이어의 URL에 파라미터를<code translate="No">videoId={}video_id</code>추가해야 전체 임베드 코드가 다음과 같이 표시됩니다.</p>
+    <p>플레이어의 URL에 매개 변수를<code translate="No">videoId={}video_id</code>추가해야 전체 임베드 코드가 다음과 같이 표시됩니다.</p>
     
     <pre class="line-numbers">
     <code class="language-html" translate="No">&lt;iframe
@@ -875,9 +457,9 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </code>
     </pre>
     
-    <p>재생 목록 플레이어인 경우 매개 변수를<code translate="No">playlistId={playlist_id}</code>대신 사용합니다. 페이지 내장 코드의 수정은 비슷합니다.</p>
+    <p>재생 목록 플레이어인 경우 매개 변수를<code translate="No">playlistId={playlist_id}</code>대신 사용합니다. 인 페이지 소스 코드의 수정도 비슷합니다.</p>
     
-    <p>플레이어 구성에서 플레이어 크기가 고정되지 않는 한<code translate="No">style</code>속성에 너비와 높이를 추가하여 플레이어의 크기를 조정해야 합니다.</p>
+    <p>플레이어 구성에서 플레이어 크기가 고정되지 않는 한, <code translate="No">style</code>어트리뷰트에 너비와 높이를 추가하여 플레이어의 크기를 조정해야 합니다.</p>
     
     <pre class="line-numbers">
     <code class="language-html" translate="No">&lt;iframe
@@ -889,13 +471,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </section>
     
     <section class="bcls-section" id="analytics">
-    <h2>분석 보고서 가져오기</h2>
+    <h2>분석 보고서 받기</h2>
     
-    <p>그만큼<a href="https://apis.support.brightcove.com/analytics/getting-started/overview-analytics-api-v1.html"><span translate="No">Analytics API</span></a>다양한 분석 보고서를 생성 할 수 있습니다. <code translate="No">dimensions</code> . 참조<a href="https://apis.support.brightcove.com/analytics/dimension-guides/index.html">치수 가이드</a>자세한 내용은.</p>
+    <p><a href="https://apis.support.brightcove.com/analytics/getting-started/overview-analytics-api-v1.html"><span translate="No">애널리틱스 API를</span></a>사용하면 다양한 방법으로 분석 보고서를 생성할 수<code translate="No">dimensions</code>있습니다. 자세한 내용은<a href="https://apis.support.brightcove.com/analytics/dimension-guides/index.html">치수 안내선을</a>참조하십시오.</p>
       
-    <p>보고서의 날짜 범위, 반환 할 측정 항목을 지정할 수 있으며 데이터를 가져올 수 있습니다. <code translate="No">JSON</code> , &lt;code "&gt; csv</span> , 또는<code translate="No">xlxs</code>체재</p>
+    <p>보고서의 날짜 범위, 반환할 지표를 지정하고<code translate="No">JSON</code> ,  &lt;  code"&gt;csv</span>또는 에서 데이터를 가져올 수 있습니다. <code translate="No">xlxs</code>형식</p>
     
-    <p>지난달의 기간에 대해서는 상세 정보를 생성 할 수도 있습니다. <a href="https://apis.support.brightcove.com/analytics/getting-started/overview-analytics-api-v1.html#engagement">참여 보고서</a>동영상의 100 분의 1마다 조회수를 보여줍니다.</p>
+    <p>지난 달 내의 기간에 대해 세부 정보를 생성할 수도 있습니다. <a href="https://apis.support.brightcove.com/analytics/getting-started/overview-analytics-api-v1.html#engagement">참여 보고서</a>동영상의 100분의 1에 대한 조회수를 보여줍니다.</p>
     </section>
     
     <section class="bcls-section" id="summary">
@@ -905,183 +487,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     
     <dl>
       <dt><a href="https://apis.support.brightcove.com/oauth/getting-started/overview-oauth-api-v4.html">OAuth API</a></dt>
-      <dd>클라이언트 자격 증명 및 액세스 토큰을 생성하여 다른 API에 액세스하는 데 사용됩니다.</dd>
+      <dd>다른 API에 액세스하기 위해 클라이언트 자격 증명 및 액세스 토큰을 만드는 데 사용됩니다.</dd>
       <dt>미디어 관리</dt>
       <dd>
       <dl>
-        <dt><a href="https://apis.support.brightcove.com/ingest-profiles/getting-started/overview-ingest-profiles-api-dynamic-delivery-context-aware-encoding.html">Ingest Profiles API</a></dt>
+        <dt><a href="https://apis.support.brightcove.com/ingest-profiles/getting-started/overview-ingest-profiles-api-dynamic-delivery-context-aware-encoding.html">인제스트 프로파일 API</a></dt>
         <dd>Video Cloud에 추가 된 비디오에 대해 생성 할 변환을 지정하는 사용자 정의 수집 프로파일을 생성하는 데 사용됩니다.</dd>
-        <dt><a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html">Dynamic Ingest API</a></dt>
+        <dt><a href="https://apis.support.brightcove.com/dynamic-ingest/getting-started/overview-dynamic-ingest-api-dynamic-delivery.html">동적 인제스트 API</a></dt>
         <dd>비디오 및 관련 미디어 자산을 Video Cloud에 추가하는 데 사용됩니다.</dd>
         <dt><a href="https://apis.support.brightcove.com/cms/getting-started/overview-cms-api.html">CMS API</a></dt>
-        <dd>수집을 위한 비디오 객체를 만들고 비디오 및 재생 목록을 관리하는 데 사용됩니다.</dd>
+        <dd>수집을위한 비디오 개체를 만들고 비디오 및 재생 목록을 관리하는 데 사용됩니다.</dd>
       </dl>
       </dd>
       <dt>Brightcove 플레이어</dt>
       <dd>
       <dl>
-        <dt><a href="https://player.support.brightcove.com/getting-started/overview-brightcove-player.html">브라이트코브 플레이어</a></dt>
+        <dt><a href="https://player.support.brightcove.com/getting-started/overview-brightcove-player.html">Brightcove 플레이어</a></dt>
         <dd>플레이어에는 런타임에 플레이어와 상호 작용하는 JavaScript API가 포함되어 있습니다.</dd>
         <dt><a href="https://apis.support.brightcove.com/player-management/getting-started/overview-player-management-api.html">플레이어 관리 API</a></dt>
-        <dd>플레이어를 생성 및 구성하고 플레이어 임베드 코드를 가져오는 데 사용됩니다.</dd>
+        <dd>플레이어를 생성 및 구성하고 플레이어 소스 코드를 가져 오는 데 사용됩니다.</dd>
       </dl>
       </dd>
       <dt><a href="https://apis.support.brightcove.com/analytics/getting-started/overview-analytics-api-v1.html">분석 API</a></dt>
-      <dd>비디오 성능에 대한 분석 보고서를 가져오는 데 사용됩니다.</dd>
+      <dd>비디오 성능에 대한 분석 보고서를 얻는 데 사용됩니다.</dd>
     </dl>
     </section>
   </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">페이지 내용</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>브라이트코브 지원</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">시스템 상태</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">고객 지원 문의</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">문서화</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>교육</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">온라인 강좌</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">강좌 등록</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">브라이트코브 대학교</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">브라이트코브닷컴</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">연락처</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> 브라이트코브 Inc. 모든 판권 소유.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">개인 정보 보호</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">이용 약관</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <style>
-    a.sj-paginator__page-number.sj-paginator__page-number--current.css-so0ov7 {
-      background-color: lightblue;
-    }
-    div.sj-tabs__tab {
-      margin-top: 3rem;
-      margin-left: .3rem;
-      border-top-left-radius: .4rem;
-      border-top-right-radius: .4rem;
-      background-color:#e8e8e8;
-    }
-
-    div.sj-tabs__tab.sj-tabs__tab--selected {
-      border-bottom-color: crimson;
-      background-color: #f8f8f8;
-    }
-
-    p.sj-results__result__description.css-p9jvyt {
-      font-size: 1rem;
-    }
-
-    .sj-result__text.css-31l7gp h3 {
-      color: navy;
-      font-size: 1.4rem;
-    }
-    </style>
-
-</body>
-
-</html>
